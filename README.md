@@ -182,5 +182,7 @@ Original source code is released under the MIT License. Original manuscript
 text, research documentation, and figures are made available under
 CC BY 4.0. Third-party material is not relicensed and remains subject to its
 respective terms. See [`LICENSE`](LICENSE) and
-[`LICENSES/README.md`](LICENSES/README.md) for the license allocation, and
+[`LICENSES/README.md`](LICENSES/README.md) for the license allocation,
+[`LICENSES/CC-BY-4.0.txt`](LICENSES/CC-BY-4.0.txt) for the research-material
+license notice, and
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for attribution details.
