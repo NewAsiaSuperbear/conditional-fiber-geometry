@@ -1,0 +1,16 @@
+{
+  "seed": 20260902,
+  "candidates": 1000,
+  "trials_per_jacobian": 200,
+  "training_jacobians": 64,
+  "test_jacobians": 64,
+  "parameter_dimension": 8,
+  "measurement_budget": 10,
+  "whitened_error": 0.030352861125600185,
+  "unweighted_error": 0.1192471905427775,
+  "random_error": 0.07701277926117028,
+  "unweighted_over_whitened": 3.9286968714195494,
+  "random_over_whitened": 2.5372494191730817,
+  "whitened_selected_high_noise_channels": 1,
+  "unweighted_selected_high_noise_channels": 8
+}

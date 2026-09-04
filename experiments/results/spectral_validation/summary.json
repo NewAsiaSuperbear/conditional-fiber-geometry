@@ -1,0 +1,39 @@
+{
+  "study_name": "full-spectrum CPU mechanism validation",
+  "completed": true,
+  "date": "2026-09-03",
+  "mlflow": {
+    "experiment": "eit-dtn-fiber-mechanism",
+    "run_id": "370ba88fbcb14071a62e0d528895ac3f",
+    "status": "FINISHED",
+    "source_tree_sha256": "e372610629c6339f1cef0310a1561a24726100704f34acafde9de6df886c21ba",
+    "git_available_at_run_time": false
+  },
+  "metrics": {
+    "runtime_seconds": 342.87653017199773,
+    "paired_generator_agreement_fraction": 1.0,
+    "replicated_pca_match_fraction": 1.0,
+    "thresholded_rank_stability_fraction": 1.0,
+    "redifferentiated_point_count": 1138,
+    "rank8_maximum_solution_distance": 1.160909806911977e-07,
+    "full_spectrum_tube_scaled_ratio_mean": 0.9999609307147562,
+    "full_spectrum_tube_scaled_ratio_minimum": 0.9989710,
+    "full_spectrum_tube_scaled_ratio_maximum": 1.00079665,
+    "full_spectrum_cover_spearman": 0.9903712294530423,
+    "sigma_min_only_cover_spearman": 0.8538556398763253,
+    "near_critical_noise_error_ratio": 402.6769875257698,
+    "mesh_rank_minimum": 6.0,
+    "mesh_rank_maximum": 6.0,
+    "finest_vs_primary_normalized_spectrum_change": 0.08191
+  },
+  "cover_calibration_at_193_points": {
+    "dimension_2": {"mean_slope": 1.507, "standard_deviation": 0.037},
+    "dimension_4": {"mean_slope": 2.629, "standard_deviation": 0.093},
+    "dimension_6": {"mean_slope": 3.647, "standard_deviation": 0.242}
+  },
+  "interpretation": [
+    "The numerical results support local geometric mechanisms and finite-resolution spectral predictions.",
+    "Thresholded numerical rank is not exact differential rank.",
+    "The reported results do not establish whole-population flow completeness or a full conditional diffusion theorem."
+  ]
+}

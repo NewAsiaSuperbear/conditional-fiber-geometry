@@ -1,0 +1,79 @@
+{
+  "study_name": "direct conditional-fiber mechanism validation",
+  "completed": true,
+  "date": "2026-09-03",
+  "seed": 20260903,
+  "runtime_seconds": 146.3099361530003,
+  "dataset_sha256": "8cad9f2063f25ac214b3cc93c75f7f9c69558741b064e14e4b8aec6be9ca4eed",
+  "base_forward_reproduction_relative_error": 1.698472197933999e-07,
+  "finite_difference": {
+    "reference_step": 0.0001,
+    "step_count": 9,
+    "admissibility_failures": 0,
+    "plateau_steps": [0.002, 0.001, 0.0003, 0.0001],
+    "rank_2_maximum_singular_value_cv": 3.117511377620754e-05,
+    "rank_4_maximum_singular_value_cv": 3.8585391751734585e-05,
+    "rank_6_maximum_singular_value_cv": 4.977024867257143e-05
+  },
+  "coordinate_scaling": {
+    "original_rank": 6,
+    "transformed_rank": 6,
+    "original_sigma_r": 0.3605755415737842,
+    "transformed_sigma_r": 0.19059536112954661
+  },
+  "same_rank_different_conditioning": {
+    "stable_sigma_r": 0.3605755415737842,
+    "weak_sigma_r": 0.0007680581376839252,
+    "stable_mean_parameter_error": 0.003546126897905288,
+    "weak_mean_parameter_error": 1.054406214896697,
+    "weak_over_stable_error_ratio": 297.340237744887
+  },
+  "different_rank_comparable_conditioning": {
+    "rank_2_sigma_r": 0.15209850433662409,
+    "rank_4_sigma_r": 0.1520985935065508,
+    "sigma_ratio": 1.0000005862643233,
+    "recovered_dimensions": [6, 4]
+  },
+  "nonlinear_tube": {
+    "rank": 6,
+    "sigma_r": 0.3605755415737841,
+    "delta_count": 5,
+    "weakest_scaled_ratio_mean": 0.9998935349327182,
+    "weakest_scaled_ratio_minimum": 0.9969076034383028,
+    "weakest_scaled_ratio_maximum": 1.0029955293620116
+  },
+  "whitening": {
+    "masks": 500,
+    "trials_per_mask": 400,
+    "anisotropic_noise_ratio": 20.0,
+    "raw_inverse_sigma_spearman": 0.4133489493957976,
+    "whitened_inverse_sigma_spearman": 0.9876780627122507,
+    "isotropic_raw_vs_whitened_spearman": 1.0
+  },
+  "gaussian_mmse": {
+    "samples": 200000,
+    "theoretical_trace_risk": 0.13075544558427263,
+    "empirical_risk": 0.13125304688839812,
+    "relative_error": 0.0038055876135941282,
+    "z_score": 1.389461304545912
+  },
+  "projection": {
+    "compatible_cases": 20000,
+    "compatible_violation_count": 0,
+    "noisy_negative_control_cases": 20000,
+    "noisy_failures_or_distance_increases": 20000
+  },
+  "cem_derivative_interface": {
+    "chart_dimension": 4,
+    "forward_output_dimension": 2356,
+    "reference_step": 0.0001,
+    "plateau_max_relative_change": 1.1536025908198487e-05,
+    "official_jacobian_relative_difference": 0.0012421247883707427,
+    "directional_taylor_residual_loglog_slope": 1.9762692091253835
+  },
+  "interpretation": [
+    "Thresholded numerical rank is not exact differential rank.",
+    "Finite-cloud dimension and covering values are diagnostics, not proofs.",
+    "Singular values depend on the declared parameter and observation metrics."
+  ]
+}

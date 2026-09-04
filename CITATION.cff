@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository, please cite the preferred research report below.
+title: "Conditional Fiber Geometry for Incomplete Inverse Data"
+type: software
+version: 0.2.0
+date-released: 2026-09-04
+authors:
+  - family-names: Wu
+    given-names: Weiyan
+repository-code: "https://github.com/NewAsiaSuperbear/conditional-fiber-geometry"
+url: "https://github.com/NewAsiaSuperbear/conditional-fiber-geometry"
+license: MIT
+keywords:
+  - inverse problems
+  - conditional fibers
+  - covering numbers
+  - electrical impedance tomography
+  - diffusion models
+  - scientific machine learning
+abstract: >-
+  Research software and an accompanying mathematical report on conditional
+  fibers induced by incomplete observations of finite-dimensional inverse
+  problems. The repository separates proved abstract results, local
+  quantitative estimates, numerical EIT evidence, external conditional
+  consequences, and open application-wide assumptions.
+preferred-citation:
+  type: report
+  title: "Conditional Fiber Geometry for Incomplete Inverse Data"
+  version: 0.2.0
+  year: 2026
+  authors:
+    - family-names: Wu
+      given-names: Weiyan
+  url: "https://github.com/NewAsiaSuperbear/conditional-fiber-geometry"

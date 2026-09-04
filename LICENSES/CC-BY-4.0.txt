@@ -1,0 +1,31 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+=======================================================================
+
+SPDX-License-Identifier: CC-BY-4.0
+
+Copyright (c) 2026 Wu Weiyan
+
+The author applies the Creative Commons Attribution 4.0 International Public
+License to the author-owned research materials identified in
+`LICENSES/README.md`.
+
+Canonical legal code:
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+Human-readable summary:
+https://creativecommons.org/licenses/by/4.0/
+
+Under this license, users may share and adapt the licensed material for any
+purpose, provided that they give appropriate credit, provide a link to the
+license, and indicate whether changes were made. The canonical legal code at
+the link above governs; this short notice is not a substitute for that legal
+code.
+
+Suggested attribution: Wu Weiyan, *Conditional Fiber Geometry for Incomplete
+Inverse Data*, version 0.2.0,
+https://github.com/NewAsiaSuperbear/conditional-fiber-geometry.
+
+This license applies only to material for which the repository author owns or
+controls the relevant rights. Third-party material remains subject to its own
+terms and is not relicensed. See the repository-root
+`THIRD_PARTY_NOTICES.md`.

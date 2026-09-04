@@ -1,0 +1,13 @@
+{
+  "runtime_seconds": 342.87653017199773,
+  "paired_generator_agreement_fraction": 1.0,
+  "replicated_pca_match_fraction": 1.0,
+  "thresholded_rank_stability_fraction": 1.0,
+  "rank8_maximum_solution_distance": 1.160909806911977e-07,
+  "full_spectrum_tube_scaled_ratio_mean": 0.9999609307147562,
+  "full_spectrum_cover_spearman": 0.9903712294530423,
+  "sigma_min_only_cover_spearman": 0.8538556398763253,
+  "near_critical_noise_error_ratio": 402.6769875257698,
+  "mesh_rank_minimum": 6.0,
+  "mesh_rank_maximum": 6.0
+}

@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conditional-fiber-geometry"
+version = "0.2.0"
+description = "Quantitative analysis of conditional fibers in finite-dimensional inverse-data models"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Weiyan Wu"},
+]
+keywords = [
+  "covering numbers",
+  "differential geometry",
+  "electrical impedance tomography",
+  "inverse problems",
+  "scientific machine learning",
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+  "numpy>=2.2,<3",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.4,<9"]
+figures = ["matplotlib>=3.8,<4"]
+
+[project.urls]
+Homepage = "https://github.com/NewAsiaSuperbear/conditional-fiber-geometry"
+Repository = "https://github.com/NewAsiaSuperbear/conditional-fiber-geometry"
+Issues = "https://github.com/NewAsiaSuperbear/conditional-fiber-geometry/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

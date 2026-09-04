@@ -1,0 +1,20 @@
+{
+  "seed": 20260903,
+  "contrast": 4.0,
+  "jacobian_step": 0.002,
+  "rank_threshold": 0.001,
+  "candidate_masks": 1200,
+  "fiber_points": 192,
+  "fiber_radius": 0.012,
+  "fiber_tolerance": 2e-08,
+  "corrector_iterations": 5,
+  "cover_repetitions": 16,
+  "tube_directions": 20,
+  "projection_cases": 20000,
+  "mmse_samples": 200000,
+  "whitening_masks": 500,
+  "whitening_trials": 400,
+  "dataset_role": "synthetic quadrilateral DtN population from the parent project",
+  "dataset_bundled": false,
+  "finite_difference_steps": [0.01, 0.003, 0.002, 0.001, 0.0003, 0.0001, 0.00003, 0.00001, 0.000001]
+}

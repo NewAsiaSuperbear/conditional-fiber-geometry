@@ -1,0 +1,13 @@
+{
+  "seed": 20260904,
+  "base_polygons": 10,
+  "replication_points": 24,
+  "independent_points": 96,
+  "fiber_radius": 0.008,
+  "jacobian_step": 0.002,
+  "rank_threshold": 0.001,
+  "candidate_masks": 800,
+  "cover_repetitions": 8,
+  "dataset_role": "synthetic quadrilateral DtN population from the parent project",
+  "dataset_bundled": false
+}
