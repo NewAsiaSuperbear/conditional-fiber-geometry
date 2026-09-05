@@ -3,8 +3,8 @@ message: >-
   If you use this repository, please cite the preferred research report below.
 title: "Conditional Fiber Geometry for Incomplete Inverse Data"
 type: software
-version: 0.2.0
-date-released: 2026-09-04
+version: 0.3.0
+date-released: 2026-09-05
 authors:
   - family-names: Wu
     given-names: Weiyan
@@ -27,7 +27,7 @@ abstract: >-
 preferred-citation:
   type: report
   title: "Conditional Fiber Geometry for Incomplete Inverse Data"
-  version: 0.2.0
+  version: 0.3.0
   year: 2026
   authors:
     - family-names: Wu

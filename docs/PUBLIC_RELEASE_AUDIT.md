@@ -1,114 +1,128 @@
 # Public release audit
 
-Audit date: 4 September 2026  
-Release candidate: `v0.2.0-rc1`  
-Audited content baseline: `566a5076146f0999fcf90db46dccfa7deea3dbdc`  
-Repository visibility during this audit: private
+- Audit date: 5 September 2026
+- Candidate: `v0.3.0` pre-tag working tree
+- Audited baseline: `783d3837e182a9d462db332cd029c1b97382ce79`
+- Remote default branch at audit time: the same baseline on public `main`
 
-The release-candidate tag identifies the commit containing this record. The
-content baseline above is the clean root commit examined before this audit
-record was added.
+This record audits the complete intended candidate, including modified and
+previously untracked files, before its release commit is created. No `v0.3.0`
+tag, GitHub release, or push was made as part of this audit. The existing
+`v0.2.0` tag and release remain unchanged.
 
 ## Release-gate summary
 
 | Gate | Result | Verification |
 |---|---|---|
-| Secret scan | Pass | Gitleaks 8.30.1 found no leaks in the release tree or clean Git history. |
-| Personal-data scan | Pass | No private path, machine name, local account name, IP address, or unintended identifier was found. The author name and Git commit email are intentional public metadata. |
-| Git-history scan | Pass | The public candidate has a clean root history. The superseded development history is retained only in an offline bundle outside the repository. |
-| GitHub-side historical state | Pass | The obsolete release, tag, Actions runs, and release asset were removed while the repository was private. No historical Actions artifacts existed. |
-| Third-party copyright | Pass | No third-party source code, figure, mesh, or dataset is redistributed. The KTC2023-derived diagnostic is scoped and attributed in `THIRD_PARTY_NOTICES.md`. |
-| Repository licenses | Pass | Original software uses MIT; author-owned manuscript, documentation, figures, and numerical results use CC BY 4.0. Third-party material is not relicensed. |
-| Dependency licenses | Pass | Direct software and CI dependencies are inventoried with upstream license links. Dependencies are installed, not vendored. |
-| Mathematical claims | Pass | The theorem statements, assumptions, proofs, claims matrix, README, and limitations were checked for consistency. No known false release claim remains. |
-| Correctness tests | Pass | All 16 pytest tests passed in both a supported clean environment and the pinned release environment. |
-| Analytic examples | Pass | The deterministic toy validation completed with the expected projection, transport, critical-rank, and spectral-cover outputs. |
-| Figure reproduction | Pass | The validation figure rebuilt byte-for-byte in the pinned environment; its SHA-256 manifest entry was verified. |
-| Result integrity | Pass | All 20 entries in `experiments/results/SHA256SUMS` were verified. |
-| Manuscript build | Pass | A forced clean LaTeX build produced a 17-page PDF with resolved citations and references and no reported box warnings. |
-| PDF metadata | Pass | Metadata contain only the intended title, author, subject, keywords, and standard producers; no local path or machine identifier was found. |
-| PDF visual review | Pass | Every page and the principal theorem, figure, and bibliography pages were inspected for layout damage. |
-| Local links and structured files | Pass | All 17 local Markdown links resolve; JSON, workflow YAML, and CFF 1.2 metadata parse successfully. |
-| External links | Pass with transition check | All non-repository public links resolved. Repository and security-reporting URLs are rechecked after visibility changes because a private repository returns HTTP 404 to anonymous clients. |
-| Reproducibility scope | Pass | Self-contained and non-self-contained parts are explicitly separated in `docs/REPRODUCIBILITY.md`. |
+| Secret scan | Pass | The official Gitleaks 8.30.1 Linux archive was checked against its published SHA-256 (`551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb`). `gitleaks git` scanned both historical commits and `gitleaks dir` scanned the candidate tree with no leaks. Independent pattern scans also covered binary strings and archive string arrays. |
+| Personal-data scan | Pass | No private absolute path, local account name, machine name, IP address, unintended email address, or credential pattern occurs in the candidate files, PDFs, or NPZ string arrays. The author name and the existing Git commit email are intentional public metadata. |
+| Candidate inventory | Pass | The intended tree contains 74 files and 10,919,727 bytes. The largest file is 4,540,108 bytes; no file reaches 5 MB, and there are no symlinks. |
+| Git-history integrity | Pass | `git fsck --full` and `git diff --check` passed. The two-commit history and its 55 historical blobs were scanned for private paths and secrets with zero findings. |
+| Current GitHub state | Pass | The repository is public, unarchived, and enabled; `main` resolves to the audited baseline; GitHub detects MIT; all six intended research topics are present; private vulnerability reporting is enabled; and all four existing Actions runs completed successfully. The only GitHub release is the unchanged `v0.2.0` release. |
+| Third-party copyright | Pass | No upstream KTC source, measurement data, mesh, archive, or figure is redistributed. The retained CEM entries are author-generated aggregate diagnostics and are scoped in `THIRD_PARTY_NOTICES.md`. |
+| Repository licenses | Pass | Original software uses MIT. Author-owned manuscript, documentation, figures, and numerical results use CC BY 4.0. Third-party material is not relicensed. |
+| Dependency licenses | Pass | Runtime, test, plotting, build, and pinned CI dependencies are inventoried with upstream license links. Dependencies are installed rather than vendored. |
+| Mathematical claims | Pass | Two independent read-only reviews found no P0 mathematical or numerical blocker. The image-rank theorem, regular-tube bootstrap, `tanh` TV bound, boundary/corner scope, positive external entropy exponent, and learned-study limits are synchronized across the manuscript and scope documents. |
+| Reused-experiment boundary | Pass | Acceptance accounting, the 360-Jacobian image-rank audit, per-scale saturation diagnostics, and the three-seed learned endpoint are incorporated with source hashes and explicit selection limits. Missing nonlinear-tube, horizontal-flow, coarea, rank-ablation, and noisy-posterior studies remain plans rather than results. |
+| Experiment tracking | Pass | Post-hoc curation and reanalysis are recorded as MLflow experiment `conditional-fiber-geometry-release-integration`, run `623028254fa7415a969b1912449bab07`, with canonical nested artifacts and `FINISHED` status. This record is not presented as the historical training run. |
+| Python correctness tests | Pass | All 34 pytest tests passed in both the project test environment and an isolated installed release environment. No test was removed or weakened. |
+| Package build and install | Pass | A `0.3.0` wheel was built without dependency resolution using setuptools 80.9.0 and wheel 0.45.1, then installed and imported from a separate temporary environment. |
+| Analytic examples | Pass | The deterministic toy validation completed with the expected projection, transport, critical-rank, and spectral-cover values. |
+| Result integrity | Pass | All 29 entries in `experiments/results/SHA256SUMS` verify. Four NPZ files containing 48 arrays load with `allow_pickle=False`; no array has object dtype, and no ZIP member is encrypted or path-traversing. |
+| Result regeneration | Pass | The image-rank summary, acceptance table, cover-scale tables, learned summary, and both public figures were regenerated from their declared public or hashed sources. The two figures reproduced byte-for-byte in the pinned plotting environment. |
+| Manuscript build | Pass | LaTeX produced a 22-page PDF with all 17 bibliography entries cited, 45 labels and 53 references resolved, and no warning, undefined-reference, overfull/underfull box, or error line in the final log. |
+| PDF safety and visual review | Pass | All three PDFs are readable, unencrypted, and free of attachments, JavaScript, date metadata, private paths, email addresses, IP addresses, and unresolved `??` text. Fonts in the manuscript are embedded. Pages 15--20 and both experiment figures were visually rechecked after the final edits. |
+| Structured files and local links | Pass | Ten JSON files, 13 CSV files, one TOML file, and two YAML/CFF files parse successfully. All 30 local Markdown file links resolve. |
+| External links | Pass | All 22 distinct public URLs returned HTTP 200 after redirects. The repository, issue tracker, security-report route, scholarly sources, licenses, and dependency pages were included. |
+| Reproducibility scope | Pass | Self-contained analyses, post-hoc curation, historical experiments, omitted large artifacts, and proposed future experiments are separated in `docs/REPRODUCIBILITY.md`, `experiments/PROVENANCE.md`, and the experiment gap plan. |
 
-## Mathematical dependency review
+## Mathematical dependency and scope review
 
-The release uses the following dependency structure.
+The audited logical structure is:
 
 ```text
-constant-rank theorem + compact chart covering
-└── Theorem 3.1: compact regular-fiber entropy
-    └── Corollary 3.3: random-mask conditional entropy
-        └── Corollary 8.1: pointwise external DDPM consequence
-            (also requires Liang--Huang--Chen v2, Assumptions 1--3
-             and Theorem 2)
+regular level set + compact chart covering
+└── compact regular-fiber entropy (ambient exponent d - r)
+    ├── constant restricted image rank
+    │   └── image-fiber entropy (exponent ell = rank(DF|ker DH))
+    └── deterministic random-mask support
+        └── fixed-pair conditional entropy
+            └── version-pinned external DDPM entropy input
 
-deterministic observation constraint
-└── Proposition 3.2: random-mask conditional support
-    └── Corollary 3.3
+SVD + ellipsoid covering
+└── linear full-spectrum tube
+    └── noise-whitened tube
 
-singular-value decomposition + ellipsoid covering
-└── Theorem 4.1: linear full-spectrum tube
-    └── Corollary 4.2: noise-whitened tube
+quantitative contraction in truncated singular coordinates
+└── quantitative implicit graph
+    └── local nonlinear full-spectrum tube
+        └── uniform exact-fiber cover on an assumed regular region
 
-quantitative contraction argument in singular coordinates
-└── Lemma 4.3: quantitative implicit graph
-    └── Theorem 4.4: local nonlinear spectral tube
-        └── Corollary 4.5: uniform exact-fiber covering
-
-Definition 5.1: bidirectional no-exit
-+ Assumption 5.2: full row rank, boundary submersion, density bounds,
-  derivative bounds, and convex observation paths
-+ Lemma 5.3: derivative of the full-row-rank right inverse
-└── Theorem 5.4: quantitative transport of neat fibers
-    ├── Theorem 6.1: conditional-measure transport
-    │   └── Corollary 6.2: complete-data-law Wasserstein regularity
-    └── Theorem 7.1: motion and curvature of conditional image manifolds
-        (also requires tangent noncollapse and fiberwise injectivity)
+regular-tube bootstrap + ambient C1 flow
++ boundary submersion + bidirectional no-exit + coarea density bounds
+└── quantitative complete-fiber transport
+    ├── conditional-measure transport with TV <= tanh(C0 Delta)
+    │   └── complete-data-law Wasserstein continuity
+    └── C1 motion and curvature bounds for noncollapsed image manifolds
 
 conditional-law Wasserstein control + Gaussian kernel estimates
-└── Proposition 7.2: smoothed density and gradient-density regularity
+└── smoothed density and gradient-density L1 regularity
 ```
 
-The dependency review preserves the following scope restrictions:
+The following restrictions remain mandatory:
 
-- boundary submersion and bidirectional no-exit are assumptions, not global
-  conclusions about the EIT polygon prior;
-- covering estimates are upper bounds and do not assert image-dimension
-  equality;
-- numerical rank and finite-cloud PCA are diagnostics rather than proofs;
-- Proposition 7.2 does not imply conditional-score regularity; and
-- Corollary 8.1 is pointwise, version-pinned, non-uniform, and conditional on
-  an external diffusion theorem.
+- the image-rank exponent requires constant restricted rank on a relative
+  neighborhood of the complete compact fiber; the 360 sampled Jacobians are
+  only a negative pointwise diagnostic and gave no empirical improvement over
+  `8 - r`;
+- the full inequality-defined polygon admissibility set is naturally cornered
+  or stratified and is not globally covered by the smooth-boundary Assumption
+  Q;
+- boundary submersion, a uniform singular-value lower bound, complete nonempty
+  fibers, and bidirectional no-exit remain assumptions rather than established
+  properties of the full polygon prior;
+- finite-difference rank, accepted/base-point re-differentiation, local PCA,
+  and constrained-search return are numerical evidence rather than analytic
+  proofs;
+- the learned controls were sampled from the middle 80% of a 2,000-candidate
+  score ordering, numerical rank was not controlled, and the bootstrap does
+  not resample masks or the already aggregated 16-sample Monte Carlo axis;
+- the learned conditional EDM is not the DDPM chain in the external theorem;
+  its held-out error improvement does not establish a `d-r` learning rate,
+  conditional-score approximation, posterior calibration, or finite-sample
+  theory; and
+- the DDPM corollary is pointwise in a fixed regular pair, requires a positive
+  selected entropy exponent and the pinned external hypotheses, and is not a
+  uniform conditional-network theorem.
 
-## GitHub transition controls
+## Reused results and missing experiments
 
-Immediately after changing visibility, the maintainer must:
+The v0.3.0 candidate reuses completed local evidence only where the archived
+outputs and current claims align:
 
-1. inspect the repository, commit history, Actions page, Releases page,
-   license detection, citation rendering, and manuscript download as an
-   unauthenticated visitor;
-2. enable and verify GitHub private vulnerability reporting so that the route
-   in `SECURITY.md` resolves;
-3. verify the public repository description and six research topics; and
-4. return the repository to private visibility if any unexpected historical
-   object, private metadata, or broken security route appears.
+- continuation acceptance and survivorship accounting;
+- complete-map numerical spectra for the image-rank refinement;
+- scale-resolved linear-cover saturation diagnostics; and
+- a held-out conditional EDM/U-Net comparison under a frozen, path-free
+  protocol.
 
-## Known open mathematical issues
+The prioritized missing-experiment protocols are recorded in
+`docs/EXPERIMENT_REUSE_AND_GAP_PLAN.md`: nonlinear constrained residual-tube
+optimization (P0), EIT horizontal flow and no-exit diagnostics (P1), an
+explicit-prior coarea-law study (P2), matched-rank diffusion ablation (P3), and
+a noisy-posterior study after a corresponding theorem (P4). They are not
+release blockers because the candidate does not claim their conclusions.
 
-- global EIT boundary transversality and bidirectional no-exit;
-- observation-uniform conditional entropy constants;
-- positive uniform reach for the complete conditional image family;
-- conditional-score regularity and finite-sample score estimation;
-- adaptation to external diffusion-theorem versions other than the pinned
-  arXiv v2 result; and
-- continuum finite-element convergence for the reported discretized tests.
+## Publication handoff
 
-These are stated as open problems and are not release blockers.
+The local content candidate has no known release blocker. Publication still
+requires explicit maintainer authorization for the external-state changes:
 
-## Blocking issues
+1. review and create the v0.3.0 content commit;
+2. push `main` and require both Python 3.11 and 3.12 CI jobs to pass;
+3. create a new annotated `v0.3.0` tag without moving either v0.2.0 tag;
+4. create the GitHub release and attach the audited manuscript PDF if desired;
+5. verify the release page, asset hash, citation rendering, license detection,
+   security-report route, and manuscript download as an unauthenticated user.
 
-None at the release-candidate gate. Publication remains conditional on the
-transition controls above; failure of any transition check requires immediate
-reversion to private visibility.
+Because the repository is already public, no visibility transition is needed.

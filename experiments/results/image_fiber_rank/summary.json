@@ -1,0 +1,25 @@
+{
+  "study": "post-hoc full-map numerical-rank audit",
+  "population_seeds": [
+    20260828,
+    20260829,
+    20260830
+  ],
+  "sample_count": 360,
+  "relative_rank_threshold": 0.001,
+  "numerical_rank_counts": {
+    "8": 360
+  },
+  "all_numerical_ranks_equal_parameter_dimension": true,
+  "sigma_8": {
+    "minimum": 0.3229524814453275,
+    "median": 1.6742161330143082,
+    "tenth_percentile": 0.7991739227369858
+  },
+  "relative_sigma_8": {
+    "minimum": 0.023741703595675397,
+    "median": 0.08652993024866668,
+    "tenth_percentile": 0.04861417949405593
+  },
+  "image_fiber_interpretation": "At the sampled Jacobians the complete map has numerical rank 8, so the numerical rank-difference diagnostic gives 8-r rather than a stricter exponent. This does not verify either rank on a complete fiber neighborhood."
+}

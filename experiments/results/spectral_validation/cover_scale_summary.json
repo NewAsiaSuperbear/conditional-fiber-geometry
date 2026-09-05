@@ -1,0 +1,8 @@
+{
+  "scale_count": 8,
+  "usable_scale_count": 4,
+  "usable_criterion": "0.1*n < median_cover_count < 0.9*n",
+  "mean_usable_full_spectrum_spearman": 0.9903712294530423,
+  "mean_usable_sigma_min_only_spearman": 0.8538556398763253,
+  "interpretation": "Finite-cloud diagnostic only; fine-scale saturation and shared linear-spectrum construction remain visible in the per-scale table."
+}

@@ -22,7 +22,7 @@ from conditional-mass reweighting. With \(\Delta=\|z-z'\|\), it uses
 \[
 W_1(\mu_z,\mu_{z'})
 \leq \frac{M_F}{s_0}\Delta
-+\frac{D_F}{2}\bigl(e^{2C_0\Delta}-1\bigr),
++D_F\tanh(C_0\Delta),
 \]
 
 where \(M_F\) controls \(DF\) along horizontal trajectories and
@@ -66,6 +66,43 @@ parameter region. The same requirement applies to the reverse ordered pair.
 **Status.** The fiber and conditional-measure transport results are proved
 under this explicit hypothesis. Whole-prior EIT verification is not claimed.
 
+## Regular-tube bootstrap and ambient flow
+
+**Issue.** No-exit states that a horizontal trajectory remains in
+\(\mathcal K\), whereas the full-row-rank identity
+\(DH\,DH^\dagger=I\) is assumed only on a neighborhood of
+\(\mathcal K_G=\mathcal K\cap H^{-1}(G)\). Using that identity along the whole
+trajectory without an intermediate argument would be circular.
+
+**Correction.** Lemma `lem:regular-tube-bootstrap` argues up to a hypothetical
+first exit from \(\mathcal U_Q\). Before that exit,
+\(H(v(t))=(1-t)z+tz'\in G\); continuity and no-exit would therefore place the
+first exit point back in \(\mathcal K_G\subset\mathcal U_Q\), a contradiction.
+The trajectory consequently stays in the common regular tube. The lemma also
+uses the `C1` pseudoinverse field and compact continuation to supply an ambient
+`C1` local flow through time one, making the derivative estimates for the
+time-one map unambiguous.
+
+**Status.** Proved under Assumption Q; existence on the full interval remains
+part of the explicit no-exit hypothesis rather than a consequence of rank.
+
+## Polygon admissibility corners
+
+**Issue.** A polygon parameter region defined by several simultaneous
+admissibility inequalities is generally a manifold with corners or a
+stratified set, not automatically a compact manifold with `C2` boundary.
+
+**Correction.** The manuscript now states that Assumption Q applies only on a
+verified smooth full-dimensional compact subdomain with `C2` boundary,
+boundary submersion, and no-exit. A lower-dimensional stratum would require a
+separate intrinsic formulation and reference measure. The manuscript does not
+identify positive numerical margins with a proof that the complete
+rejection-defined polygon prior has `C2` boundary, and it does not transport
+across changes of active constraint.
+
+**Status.** The abstract smooth-domain theorem is proved. A corners or
+stratified extension for the full polygon prior remains outside the claim set.
+
 ## Quantitative nonlinear spectral tube
 
 **Issue.** A generic appeal to the implicit-function theorem did not provide
@@ -91,6 +128,12 @@ obtains
 covering upper bound and does not assert constant rank outside the controlled
 neighborhood.
 
+The proof now describes \((U_r,\Sigma_r,V_r)\) as the leading rank-\(r\)
+truncated singular block. If the base Jacobian has rank greater than \(r\),
+the unselected nonzero directions are deliberately absorbed into the coarse
+\((d-r)\)-dimensional factor; only when \(r=\operatorname{rank}J_0\) does the
+product contain the complete nonzero spectrum.
+
 ## Density distortion along horizontal trajectories
 
 **Issue.** A bound on \(\|\nabla\log w\|\) had been described as global
@@ -102,6 +145,47 @@ regular region by no-exit. This is the only pathwise comparison required.
 
 **Status.** The Radon--Nikodym, transported total-variation, and
 Wasserstein-1 estimates are proved under Assumption Q.
+
+## Uniform total-variation sharpening
+
+**Issue.** The earlier estimate
+\(\operatorname{TV}\le\tfrac12(e^{2C_0\Delta}-1)\) was valid but could exceed
+one and discarded the normalization of the Radon--Nikodym density.
+
+**Correction.** If
+\(f=d\nu_{z'}/d\widetilde\nu_{z'}\), then
+\(e^{-a}\le f\le e^a\), \(\int f\,d\widetilde\nu_{z'}=1\), and
+\(a=2C_0\Delta\). The elementary inequality
+
+\[
+\frac{|f-1|}{f+1}\le\frac{e^a-1}{e^a+1}=\tanh(a/2)
+\]
+
+gives
+
+\[
+\operatorname{TV}(\nu_{z'},\widetilde\nu_{z'})
+\le\tanh(C_0\Delta).
+\]
+
+The parameter-law and complete-data-law bounds are correspondingly sharpened
+to
+
+\[
+W_p(\nu_z,\nu_{z'})
+\le \frac{\Delta}{s_0}
++D_{\mathcal K}\tanh(C_0\Delta)^{1/p}
+\]
+
+and
+
+\[
+W_1(\mu_z,\mu_{z'})
+\le \frac{M_F}{s_0}\Delta+D_F\tanh(C_0\Delta).
+\]
+
+**Status.** Proved from the normalized density-ratio bounds; the TV term is
+now uniformly at most one.
 
 ## Derivative comparison for moving image manifolds
 
@@ -192,6 +276,40 @@ level set has dimension \(d-r\), while the compact fiber subset and its image
 have covering upper exponent at most \(d-r\).
 
 **Status.** Proved. Equality for the image fiber is not claimed.
+
+## Image-rank-refined entropy
+
+**Issue.** The ambient fiber dimension \(d-r\) can overstate the complexity of
+the complete-data image when \(F\) collapses directions tangent to the
+observation fiber.
+
+**Correction.** Corollary `cor:image-rank-entropy` assumes that
+
+\[
+\operatorname{rank}\left(DF(v)|_{\ker DH(v)}\right)=\ell
+\]
+
+on a relatively open neighborhood of the compact fiber inside the regular
+level set. The constant-rank theorem for the restricted manifold map and a
+finite-chart argument give covering upper exponent \(\ell\). If \(\ell=0\),
+the image is finite even though the parameter fiber need not be. Since
+\(H=PF\), one has \(\ker DF\subseteq\ker DH\); when the ambient ranks are
+constant, rank--nullity gives
+
+\[
+\ell=\operatorname{rank}DF-\operatorname{rank}DH.
+\]
+
+The random-mask corollary now uses an explicitly named Borel full-measure good
+set and permits \(\ell(m,z)\) in place of \(2n_v-r(m,z)\) only when this
+additional constant-rank hypothesis is certified. The pointwise DDPM
+corollary accepts either positive certified exponent. A zero exponent is kept
+as a finite-support statement and is not inserted into an external theorem
+formulated for positive intrinsic dimension.
+
+**Status.** Proved as an image-space covering upper bound. Constant restricted
+rank alone gives neither global injectivity nor an embedded image nor a
+matching entropy lower bound. Numerical ranks do not certify the hypothesis.
 
 ## Regression checks
 

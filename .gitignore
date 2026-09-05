@@ -51,6 +51,16 @@ mlruns/
 mlflow.db
 wandb/
 
+# Private/full-scale experiment products.  Compact reviewed artifacts under
+# experiments/results/ remain intentionally trackable.
+/data/
+/outputs/
+/checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.bundle
+
 # Local configuration and credentials
 .env
 .env.*

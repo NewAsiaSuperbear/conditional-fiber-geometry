@@ -1,6 +1,21 @@
 # Future Work
 
 The questions in this document are not part of the confirmed claim set.
+Concrete protocols, required failure accounting, and the order in which these
+experiments should be run are specified in the
+[experiment reuse and gap plan](EXPERIMENT_REUSE_AND_GAP_PLAN.md).
+
+## Nonlinear residual-tube validation
+
+The existing singular-direction width calculation moves along frozen right
+singular vectors and is therefore primarily a first-order implementation
+check. The highest-priority new experiment is a genuinely constrained
+nonlinear EIT tube study: optimize width over the residual tube with independent
+multiple starts, retain feasibility and KKT diagnostics, re-evaluate spectra at
+solutions, and compare empirical covers at prespecified nonsaturated scales.
+Optimizer failures and boundary hits must be retained rather than conditioned
+away. This experiment is required before treating the nonlinear tube theorem
+as independently validated by the EIT numerics.
 
 ## Global geometric verification
 
@@ -10,6 +25,13 @@ these properties for a useful EIT polygon class requires a canonical global
 parameterization, including treatment of cyclic vertex relabeling, and a
 quantitative analysis of horizontal trajectories near every admissibility
 boundary.
+
+The new acceptance table is useful warning evidence rather than a no-exit
+test: all 104 historical continuation rejections came from one near-boundary
+polygon, while rejected-point spectra, margins, and exit trajectories were not
+saved. A new horizontal-flow audit must retain those quantities at every step,
+include reverse transport and cycle error, and treat the polygon prior as a
+cornered or stratified region rather than assuming a globally smooth boundary.
 
 A related objective is to identify observation regions on which rank,
 singular-value lower bounds, derivative bounds, and fiber chart radii are
@@ -30,6 +52,27 @@ constrained or manifold sampler for the coarea law
 Comparing coarea-weighted samples with nullspace continuation and
 full-dimensional constrained recovery would distinguish geometric fiber
 dimension from the effective dimension and density of the conditional law.
+The existing unweighted continuation clouds cannot be retrospectively treated
+as coarea-law samples. In particular, the rejection-based polygon generator's
+density must first be derived, or a new explicit smooth interior prior must be
+declared.
+
+## Image-fiber rank beyond the current sample
+
+The new theorem can sharpen the image covering exponent to
+
+\[
+\ell=\operatorname{rank}(DF|_{\ker DH})
+=\operatorname{rank}DF-\operatorname{rank}DH
+\]
+
+under its constant-rank hypotheses. The available post-hoc audit is an
+informative negative result: every one of 360 complete-data finite-difference
+Jacobians has thresholded numerical rank 8, so \(\ell=8-r\) and no stricter
+exponent appears on those samples. Further numerical searching is worthwhile
+only with a prespecified reason to expect image collapse and must audit entire
+fiber neighborhoods; pointwise rank alone cannot verify the theorem's
+hypothesis.
 
 ## Uniform support geometry
 
@@ -100,10 +143,21 @@ analytic results.
 
 ## Generative-model experiments
 
-Once conditional reference samplers are available, diffusion samples may be
-compared directly with the target conditional law across masks of different
-rank and conditioning. Controlled studies should separate residual dimension
-\(d-r\) from stability governed by the whitened singular spectrum, use common
-architectures and training budgets, and report uncertainty over independent
-seeds. These experiments remain distinct from proving a diffusion convergence
-rate.
+The released three-seed conditional EDM/U-Net study now supplies a genuine
+held-out completion endpoint for one selected and 20 score-trimmed random
+equal-budget controls.
+It can support claims about that frozen engineering protocol and about
+association with a training-only spectral mask score. Because the masks have
+the same six-channel budget, their training-population mean numerical ranks
+span only 5.65--6.00, rank was not a controlled factor, and EDM is not the DDPM
+chain in the external theorem, the study cannot support a \(d-r\) learning
+claim or validate the external convergence rate.
+
+A matched-rank ablation is still needed before making empirical claims about
+residual dimension, score error, training-set size, or diffusion-step
+complexity. It should compare rank-2, rank-4, and rank-6 masks with common
+architectures and budgets, separate rank from whitened conditioning through a
+matched or factorial design, and report multiple data and network seeds. Once
+a validated conditional reference sampler exists, generated samples should
+also be compared with the target coarea law rather than only with completion
+errors.

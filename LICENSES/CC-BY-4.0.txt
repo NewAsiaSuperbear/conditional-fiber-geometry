@@ -22,7 +22,7 @@ the link above governs; this short notice is not a substitute for that legal
 code.
 
 Suggested attribution: Wu Weiyan, *Conditional Fiber Geometry for Incomplete
-Inverse Data*, version 0.2.0,
+Inverse Data*, version 0.3.0,
 https://github.com/NewAsiaSuperbear/conditional-fiber-geometry.
 
 This license applies only to material for which the repository author owns or

@@ -1,0 +1,29 @@
+{
+  "study": "post-hoc full-map numerical-rank audit",
+  "relative_rank_threshold": 0.001,
+  "train_samples_per_population": 80,
+  "source_archives": [
+    {
+      "population_seed": 20260828,
+      "archive_sha256": "3860afbca201a691799d06a6c1e081d00aac0a1f2d603f3647c2104212af1691",
+      "samples": 120,
+      "output_dimension": 528,
+      "parameter_dimension": 8
+    },
+    {
+      "population_seed": 20260829,
+      "archive_sha256": "050e6037eb0e449a95ac348baa2956112bf4778ff354a8abfe8fcc9661da76df",
+      "samples": 120,
+      "output_dimension": 528,
+      "parameter_dimension": 8
+    },
+    {
+      "population_seed": 20260830,
+      "archive_sha256": "33f0c99ff160291a712e0dd916cf10fddf644af00d50e08887d339b9824c5bbf",
+      "samples": 120,
+      "output_dimension": 528,
+      "parameter_dimension": 8
+    }
+  ],
+  "interpretation": "Finite-difference numerical ranks only; exact rank and constant rank on complete observation fibers are not inferred."
+}

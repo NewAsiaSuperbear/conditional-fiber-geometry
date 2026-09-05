@@ -6,7 +6,11 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs}
 \usepackage{graphicx}
-\graphicspath{{../experiments/results/spectral_validation/}{experiments/results/spectral_validation/}}
+\usepackage{placeins}
+\graphicspath{{../experiments/results/spectral_validation/}
+{experiments/results/spectral_validation/}
+{../experiments/results/learned_completion/}
+{experiments/results/learned_completion/}}
 \usepackage{microtype}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage[hidelinks]{hyperref}
@@ -46,7 +50,11 @@ let $X=F(V)$ denote its complete data, and let a mask $M$ reveal $P_MX$.
 We study the conditional geometry induced by this incomplete observation.
 Near a compact regular observation fiber with Jacobian rank $r$, the ambient
 level set has dimension $d-r$, and the support of the associated conditional
-data law has covering upper exponent at most $d-r$.  For noisy observations,
+data law has covering upper exponent at most $d-r$.  If the restricted
+differential $DF|_{\ker DH}$ has constant rank $\ell$ on a relative
+neighborhood of the fiber in the regular level set, the image exponent can be
+sharpened to $\ell$; because $H=PF$, this equals
+$\rank DF-\rank DH$ when both ambient ranks are constant.  For noisy observations,
 we derive local covering estimates that retain every nonzero singular value
 of the masked, noise-whitened Jacobian.  On a compact regular region satisfying
 boundary transversality and a bidirectional no-exit condition, a pseudoinverse
@@ -58,11 +66,17 @@ for noncollapsed image manifolds and $L^1$ regularity after Gaussian
 smoothing.  Experiments on a discretized quadrilateral EIT model examine these
 mechanisms independently.  Two fiber-construction procedures recover PCA
 dimensions $6$, $4$, and $2$ for numerical ranks $2$, $4$, and $6$; a separate
-rank-eight experiment exhibits an isolated local solution.  Additional tests
+rank-eight experiment returns to the same numerical solution, consistent with
+local isolation.  Additional tests
 support the predicted $\delta/\sigma_i$ scaling and the use of the full
-singular spectrum.  The numerical results do not establish differential rank,
-global flow completeness for the polygon class, continuum finite-element
-convergence, conditional-score regularity, or a uniform diffusion-model rate.
+singular spectrum.  In a separate three-seed held-out study, a mask selected
+by a training-only spectral score reduced conditional EDM completion error
+relative to 20 score-trimmed random equal-budget controls.  This is engineering
+evidence, not a
+test of the external DDPM rate.  The numerical results do not establish
+differential rank, global flow completeness for the polygon class, continuum
+finite-element convergence, conditional-score regularity, or a uniform
+diffusion-model rate.
 \end{abstract}
 
 \section{Introduction}
@@ -91,6 +105,12 @@ have recently been used explicitly in conditional generative modeling
 \citep{akhyar2025levelsets}.  These ingredients are used here as background,
 not presented as new constructions.
 
+Connections among local identifiability, active subspaces, and parameter-space
+reduction have also been studied explicitly \citep{brouwer2018identifiability}.
+Separate minimax work analyzes manifold adaptation for conditional diffusion
+estimation \citep{tang2024conditional}; its hypotheses and rates are not used
+in the theorem below.
+
 The EIT analysis of \citet{chen2026completion} controls the conditional law by
 the entropy of the global polygonal Dirichlet-to-Neumann (DtN) class.  Its
 conditional diffusion bound therefore retains dimension $2n_v$ for every
@@ -104,7 +124,8 @@ used by an external diffusion convergence theorem.
 
 The contributions are as follows.
 \begin{enumerate}
- \item We derive compact regular-fiber covering bounds and formulate the
+ \item We derive compact regular-fiber covering bounds, sharpen them using the
+ rank of $DF$ restricted to the fiber tangent bundle, and formulate the
  corresponding conditional-support result for a random family of masks.
  \item We establish linear and local nonlinear noisy-tube bounds that retain
  the complete nonzero singular spectrum of the observation Jacobian, including
@@ -194,6 +215,51 @@ $\varepsilon$.  For $k=0$, $Q_z$ is discrete, and its compact subset $S_z$ is
 finite.
 \end{proof}
 
+\begin{corollary}[Image-rank-refined fiber entropy]
+\label{cor:image-rank-entropy}
+In the setting of Theorem~\ref{thm:fiber-entropy}, let
+$Q_z=H^{-1}(z)\cap U$ and suppose a relatively open neighborhood
+$W\subset Q_z$ of $S_z$ satisfies
+\[
+ \rank\!\left(DF(v)|_{\ker DH(v)}\right)=\ell,
+ \qquad v\in W.
+\]
+If $\ell\ge1$, there are $C_{z,\rm im}<\infty$ and
+$\varepsilon_{z,\rm im}>0$ such that
+\begin{equation}\label{eq:image-rank-cover}
+ \cN_\varepsilon(F(S_z))\le C_{z,\rm im}\varepsilon^{-\ell},
+ \qquad 0<\varepsilon\le\varepsilon_{z,\rm im}.
+\end{equation}
+If $\ell=0$, $F(S_z)$ is finite, although $S_z$ itself need not be finite.
+Moreover, since $H=PF$, if $\rank DF(v)=s$ on $W$, the restricted-rank
+hypothesis holds automatically with
+\begin{equation}\label{eq:image-rank-difference}
+ \ell=s-r.
+\end{equation}
+Here the rank of $DH$ is already $r$ on $W$ by
+Theorem~\ref{thm:fiber-entropy}.
+\end{corollary}
+
+\begin{proof}
+The tangent space of $Q_z$ is $T_vQ_z=\ker DH(v)$.  Thus the restriction
+$F|_W$ has constant differential rank $\ell$.  The constant-rank theorem for
+maps between manifolds gives, around each point of $S_z$, a local $C^1$
+factorization through $\R^\ell$.  After shrinking to relatively compact
+coordinate neighborhoods, the factors have bounded derivatives on compact
+convex coordinate balls and are Lipschitz.  Compactness of $S_z$ selects
+finitely many such neighborhoods, and the same volumetric covering argument
+as in Theorem~\ref{thm:fiber-entropy} gives \eqref{eq:image-rank-cover}.  When
+$\ell=0$, $F|_W$ is locally constant, so a finite subcover of $S_z$ shows that
+$F(S_z)$ is finite.
+
+Finally $DH=P\,DF$ implies $\ker DF(v)\subseteq\ker DH(v)$.  Hence the kernel
+of $DF(v)|_{\ker DH(v)}$ is exactly $\ker DF(v)$, and rank--nullity gives
+\[
+ \rank\!\left(DF(v)|_{\ker DH(v)}\right)
+ =(d-r)-(d-s)=s-r.
+\]
+\end{proof}
+
 \begin{proposition}[Random-mask conditional support]
 \label{prop:conditional-support}
 Let $\nu_{m,z}$ be a regular conditional distribution of $V$ given
@@ -221,30 +287,46 @@ the support inclusion.
 \end{proof}
 
 \begin{corollary}[Random-mask conditional entropy]\label{cor:random-entropy}
-Suppose $d=2n_v$ and, for $\mathcal L(Z)$-almost every relevant $(m,z)$,
-$DH_m$ has constant rank $r(m,z)$ on a neighborhood of the nonempty compact
-fiber.  When $r(m,z)<2n_v$, a constant $C''_{m,z}<\infty$ satisfies
+Suppose $d=2n_v$.  Let $\mathsf Z_{\rm reg}\subset\mathsf Z$ be a Borel set
+with $\mathcal L(Z)(\mathsf Z_{\rm reg})=1$ such that, for every
+$(m,z)\in\mathsf Z_{\rm reg}$, the nonempty compact fiber $S_{m,z}$ has an
+open neighborhood $U_{m,z}$ on which $DH_m$ has constant rank $r(m,z)$.
+For $\mathcal L(Z)$-almost every $(m,z)\in\mathsf Z_{\rm reg}$ with
+$r(m,z)<2n_v$, a constant $C''_{m,z}<\infty$ satisfies
 \[
  \log\cN_\varepsilon\!\left(
  \supp\mathcal L(X\mid M=m,Y=z)\right)
  \le C''_{m,z}+[2n_v-r(m,z)]\log(1/\varepsilon),
  \qquad 0<\varepsilon\le1.
 \]
-If $r(m,z)=2n_v$, the conditional support is finite.
+If, additionally, a relatively open neighborhood of $S_{m,z}$ in
+$H_m^{-1}(z)\cap U_{m,z}$ has constant restricted rank
+\[
+ \rank\!\left(DF(v)|_{\ker DH_m(v)}\right)=\ell(m,z),
+\]
+then the same inequality holds with $\ell(m,z)$ in place of
+$2n_v-r(m,z)$.  This additional hypothesis holds automatically with
+$\ell(m,z)=s(m,z)-r(m,z)$ if $DF$ has constant rank $s(m,z)$ there.  If
+either $r(m,z)=2n_v$ or the certified
+image rank $\ell(m,z)=0$, the conditional support is finite.
 \end{corollary}
 
 \begin{proof}
 Combine Proposition~\ref{prop:conditional-support} and
-Theorem~\ref{thm:fiber-entropy}.  Put
-$\varepsilon_*=\min\{1,\varepsilon_{m,z}\}$.  The theorem gives the stated
+Theorem~\ref{thm:fiber-entropy}; under the additional restricted-rank
+hypothesis use Corollary~\ref{cor:image-rank-entropy}.  Let
+$\varepsilon_*$ be the minimum of $1$ and the local scale supplied by the
+applicable covering bound.  That result gives the stated
 form below $\varepsilon_*$ after taking logarithms.  On
 $[\varepsilon_*,1]$, monotonicity gives
 $\log\cN_\varepsilon\le\log\cN_{\varepsilon_*}<\infty$; enlarge the additive
 constant to cover this compact scale interval.
 \end{proof}
 
-This is an upper bound.  It need not be sharp because $F$ can collapse fiber
-directions and the conditional probability may occupy only part of the image.
+Both exponents are upper bounds for an arbitrary compact intersection.  The
+refined exponent can still be non-sharp because the conditional probability
+may occupy only part of the geometric image.  No injectivity, embedded-image,
+or matching entropy lower bound follows from constant restricted rank alone.
 
 \section{Quantitative local geometry of noisy fibers}
 
@@ -412,12 +494,19 @@ a constant $C_d$ depending only on $d$ satisfies, for every $\varepsilon>0$,
  \prod_{i=1}^r\left(1+\frac{C_dL_F\delta}
  {\sigma_i\varepsilon}\right).
 \end{equation}
-No constant-rank assumption is required for this upper bound.
+No constant-rank assumption is required for this upper bound.  If
+$\rank J_0>r$, the estimate resolves only the selected leading $r$ constrained
+directions; the remaining nonzero directions are absorbed into the coarse
+$(d-r)$ factor, so the bound is intentionally not dimension-sharp.  When
+$r=\rank J_0$, the product contains the complete nonzero spectrum.
 \end{theorem}
 
 \begin{proof}
-Take the leading singular vectors in a thin SVD
-$J_0^\top U_r=V_r\Sigma_r$, complete $V_r$ orthogonally by $V_0$, and define
+Choose the leading $r$ singular triplets of $J_0$, with orthonormal matrices
+$U_r,V_r$ and $\Sigma_r=\operatorname{diag}(\sigma_1,\ldots,\sigma_r)$, so
+that $J_0V_r=U_r\Sigma_r$ and $J_0^\top U_r=V_r\Sigma_r$.  This is the
+leading rank-$r$ truncated SVD block, not necessarily the full thin SVD.
+Complete $V_r$ orthogonally by $V_0$ and define
 \[
  G(a,b)=U_r^\top
  [H(v_0+V_ra+V_0b)-H(v_0)].
@@ -492,8 +581,9 @@ every ordered pair $z,z'\in G$ and every $v_0\in S_z$, the initial-value problem
 \]
 has a unique solution for every $t\in[0,1]$ and that solution remains in
 $\mathcal K$.  Because the definition quantifies over ordered pairs, it also
-applies with $z$ and $z'$ exchanged.  Convexity of $G$ then ensures
-$H(v(t))=(1-t)z+tz'\in G$ along every such solution.
+applies with $z$ and $z'$ exchanged.  Under Assumption~\ref{ass:Q},
+Lemma~\ref{lem:regular-tube-bootstrap} below shows that these solutions remain
+in $\mathcal K_G$ and satisfy $H(v(t))=(1-t)z+tz'$.
 \end{definition}
 
 \begin{assumption}[Quantitative regular observation tube]\label{ass:Q}
@@ -544,6 +634,54 @@ is sufficient both for boundary submersion and for invariance of the boundary
 under every horizontal field, but it is not imposed when no-exit is verified
 by another argument.
 
+The $C^2$-boundary hypothesis is substantive.  A polygon admissibility region
+cut out by several simultaneous side-length, angle, convexity, and separation
+inequalities will generally be a manifold with corners or a stratified set,
+not automatically a $C^2$-boundary manifold.  The transport results below
+therefore apply only after verifying Assumption~\ref{ass:Q} on a smooth
+full-dimensional compact subdomain with $C^2$ boundary, together with no-exit
+there.  Lower-dimensional strata would require a separately formulated
+intrinsic theorem.  No global extension across polygon corners or changes of
+active constraint is claimed.
+
+\begin{lemma}[Regular-tube bootstrap and ambient flow]
+\label{lem:regular-tube-bootstrap}
+Under Assumption~\ref{ass:Q}, every trajectory supplied by
+Definition~\ref{def:no-exit} and starting in $S_z$ remains in $\mathcal K_G$
+for all $t\in[0,1]$.  For fixed $\xi=z'-z$, the vector field
+$b_\xi(v)=DH(v)^\dagger\xi$ is $C^1$ on $\mathcal U_Q$, and along each such
+trajectory its time-one solution is the restriction of an ambient $C^1$ local
+flow defined on a neighborhood of the initial point.
+\end{lemma}
+
+\begin{proof}
+Define
+\[
+ \tau=\sup\{t\in[0,1]:v([0,t])\subset\mathcal U_Q\}.
+\]
+This number is positive because
+$v(0)\in S_z\subset\mathcal K_G\subset\mathcal U_Q$.  On $[0,\tau)$, full
+row rank gives
+\[
+ \frac{\dd}{\dd t}H(v(t))=DH(v(t))DH(v(t))^\dagger\xi=\xi,
+ \qquad H(v(t))=z+t\xi\in G.
+\]
+If $\tau<1$, continuity extends the displayed identity to $t=\tau$, while
+the state constraint in Definition~\ref{def:no-exit} gives
+$v(\tau)\in\mathcal K$.  Hence $H(v(\tau))=z+\tau\xi\in G$ and
+$v(\tau)\in\mathcal K_G\subset\mathcal U_Q$.  Openness of $\mathcal U_Q$
+and continuity of $v$ then extend the defining property of $\tau$ to a larger
+time, a contradiction.  Therefore $\tau=1$, the identity extends to the
+endpoint by continuity, and the whole trajectory lies in $\mathcal K_G$.
+
+On the full-row-rank set, the formula
+$DH^\dagger=DH^\top(DH\,DH^\top)^{-1}$ and $H\in C^2$ show that $b_\xi$ is
+$C^1$.  Since $\mathcal K_G$ is compactly contained in $\mathcal U_Q$, the
+standard ODE continuation and parameter-dependence theorem, applied along the
+compact trajectory, extends the ambient local flow and its $C^1$ dependence
+on initial data through $t=1$.
+\end{proof}
+
 \begin{lemma}[Derivative of the full-row-rank right inverse]
 \label{lem:pinv}
 For full-row-rank $B\in\R^{r\times d}$, let
@@ -589,17 +727,17 @@ The differential maps $T_vS_z$ onto $T_{\Phi(v)}S_{z'}$, and
 \end{theorem}
 
 \begin{proof}
-With $A(v)=DH(v)^\dagger$, $DH(v)A(v)=I_r$, so every solution satisfies
+Lemma~\ref{lem:regular-tube-bootstrap} keeps every trajectory in
+$\mathcal K_G$, supplies its ambient $C^1$ local flow through time one, and
+justifies $DH(v)DH(v)^\dagger=I_r$ along the whole path.  Consequently
 \[
  \frac{\dd}{\dd t}H(v(t))=\xi,
  \qquad H(v(t))=z+t\xi.
 \]
-Convexity keeps the observation path in $G$, and
-Definition~\ref{def:no-exit} keeps the solution in the compact regular tube.
 The boundary-submersion part of Assumption~\ref{ass:Q} gives the asserted neat
-level sets.  ODE existence and uniqueness give
-the flow through time one; reversing $\xi$ reverses the trajectory.  Since
-$\|A\|\le1/s_0$, integration proves \eqref{eq:motion}, and applying it in both
+level sets.  Reversing $\xi$ reverses the trajectory by uniqueness, proving
+the inverse formula.  Since $\|DH^\dagger\|\le1/s_0$, integration proves
+\eqref{eq:motion}, and applying it in both
 directions proves \eqref{eq:hausdorff}.
 
 Lemma~\ref{lem:pinv} bounds the vector-field derivative by $C_A\Delta$.
@@ -649,15 +787,15 @@ Under Assumption~\ref{ass:Q}, for $\Delta=\|z'-z\|$,
  \left\|\log\frac{\dd\nu_{z'}}{\dd\widetilde\nu_{z'}}\right\|_\infty
  &\le2C_0\Delta,\label{eq:logrn}\\
  \|\nu_{z'}-\widetilde\nu_{z'}\|_{\rm TV}
- &\le\tfrac12(e^{2C_0\Delta}-1),\label{eq:tv}\\
+ &\le\tanh(C_0\Delta),\label{eq:tv}\\
  W_1(\nu_z,\nu_{z'})
  &\le\frac{\Delta}{s_0}
- +\frac{D_{\mathcal K}}2(e^{2C_0\Delta}-1).\label{eq:w1}
+ +D_{\mathcal K}\tanh(C_0\Delta).\label{eq:w1}
 \end{align}
 For $p\ge1$,
 \[
  W_p(\nu_z,\nu_{z'})\le\frac{\Delta}{s_0}
- +D_{\mathcal K}\left[\tfrac12(e^{2C_0\Delta}-1)\right]^{1/p}.
+ +D_{\mathcal K}\tanh(C_0\Delta)^{1/p}.
 \]
 No Wasserstein-2 Lipschitz conclusion is asserted from this estimate.
 \end{theorem}
@@ -693,8 +831,15 @@ so the same bounds hold for $Q(z')/Q(z)$.  At $y=\Phi(v)$,
  \frac{\dd\nu_{z'}}{\dd\widetilde\nu_{z'}}(y)
  =\frac{w(y)J_{\rm fib}\Phi(v)Q(z)}{w(v)Q(z')}.
 \]
-This proves \eqref{eq:logrn}; integrating the density-ratio error proves
-\eqref{eq:tv}.
+This proves \eqref{eq:logrn}.  Put
+$f=\dd\nu_{z'}/\dd\widetilde\nu_{z'}$ and $a=2C_0\Delta$.  Then
+$e^{-a}\le f\le e^a$ and $\int f\,\dd\widetilde\nu_{z'}=1$.  For every
+$x\in[e^{-a},e^a]$,
+\[
+ \frac{|x-1|}{x+1}\le\frac{e^a-1}{e^a+1}=\tanh(a/2).
+\]
+Multiplying by $f+1$, integrating, and using the half-$L^1$ convention for
+total variation proves \eqref{eq:tv}.
 
 Couple $v\sim\nu_z$ with $\Phi(v)$ to obtain
 $W_p(\nu_z,\widetilde\nu_{z'})\le\Delta/s_0$.  On a set of diameter
@@ -711,7 +856,7 @@ For $\mu_z=F_\#\nu_z$,
 \[
  W_1(\mu_z,\mu_{z'})
  \le \frac{M_F}{s_0}\Delta
- +\frac{D_F}{2}\left(e^{2C_0\Delta}-1\right).
+ +D_F\tanh(C_0\Delta).
 \]
 A random-mask version follows by conditioning separately on each mask,
 provided that each conditional prior $V\mid M=m$ and map $H_m$ satisfy
@@ -763,7 +908,7 @@ of dimension $k$.  The conjugated map
 \[
  \Psi_{z,z'}=F\circ\Phi_{z,z'}\circ(F|_{S_z})^{-1}
 \]
-is a diffeomorphism $\mathcal M_z\to\mathcal M_{z'}$ and
+is a $C^1$ diffeomorphism $\mathcal M_z\to\mathcal M_{z'}$ and
 \begin{align}
  \|\Psi_{z,z'}-\operatorname{Id}\|_\infty
  &\le (M_F/s_0)\Delta,\\
@@ -857,10 +1002,15 @@ $\nabla p_\sigma/p_\sigma$; Gaussian tails create a denominator problem.
 
 \begin{corollary}[Version-pinned pointwise DDPM entropy input]
 \label{cor:ddpm}
-Use the random-mask setting of Corollary~\ref{cor:random-entropy}.  On a Borel
-good set of regular observations, put
-$k(m,z)=2n_v-r(m,z)\ge1$.  For almost every fixed good $(m,z)$, assume the
-remaining conventions and hypotheses of Theorem~2 of
+Use the random-mask setting and the Borel set $\mathsf Z_{\rm reg}$ of
+Corollary~\ref{cor:random-entropy}.  For almost every fixed
+$(m,z)\in\mathsf Z_{\rm reg}$ for which a positive certified covering exponent
+$k_{\rm ent}(m,z)\ge1$ is selected, the default $2n_v-r(m,z)$ is available
+when positive, while $\ell(m,z)$ is available under the additional constant
+image-rank hypothesis in that corollary.  Here $k_{\rm ent}$ is a parameter in
+the external single-scale covering assumption, not a claim that this upper
+exponent is the minimal Minkowski dimension.  Assume the remaining conventions
+and hypotheses of Theorem~2 of
 \citet[arXiv version 2]{liang2025lowdim}, and let $(X_t)$ and $(Y_t)$ denote,
 respectively, the forward and original-DDPM chains defined there.  In the
 notation of that theorem, assume
@@ -882,14 +1032,14 @@ the fixed observation),
 \[
  \TV(p_{X_1\mid Z=(m,z)},p_{Y_1\mid Z=(m,z)})
  \lesssim_{m,z}
- \frac{k(m,z)\log^3T}{T}
+ \frac{k_{\rm ent}(m,z)\log^3T}{T}
  +\varepsilon_{\rm score}(m,z)\sqrt{\log T}.
 \]
 \end{corollary}
 
 \begin{proof}
-Fix $(m,z)$ outside the exceptional null set, abbreviate its exponent by
-$k\ge1$, and choose the single scale
+Fix such a pair $(m,z)$ outside the exceptional null set, abbreviate its
+selected positive exponent by $k\ge1$, and choose the single scale
 $\varepsilon_0=T^{-c_{\varepsilon_0}}$ required by Assumption~1 of
 Liang--Huang--Chen v2.  Corollary~\ref{cor:random-entropy} gives
 \[
@@ -910,9 +1060,10 @@ Theorem~4.15.  We pin arXiv version~2 because its hypotheses are the ones
 verified in the preceding argument; adapting the corollary to subsequent
 formulations is left for future work.  The result remains external and
 pointwise conditional: neither its score-error hypothesis nor constants
-uniform in $(m,z)$ are established here.  When $r=2n_v$, the fiber is finite,
-but we do not substitute a zero-dimensional parameter into an external theorem
-formulated for positive intrinsic dimension.
+uniform in $(m,z)$ are established here.  When either $r(m,z)=2n_v$ or a
+certified restricted image rank $\ell(m,z)=0$, the conditional support is
+finite, but we do not substitute a zero-dimensional parameter into an
+external theorem formulated for positive intrinsic dimension.
 
 \section{Discretized EIT model and numerical methodology}
 \label{sec:eit-methods}
@@ -938,6 +1089,13 @@ population was generated with seed 20260901 and separated into 2,000 training,
 redistributed in this repository; the retained numerical files are compact,
 non-personal diagnostic outputs.
 
+To examine the image-rank refinement without inferring an exact rank, a
+post-hoc audit recomputed the full singular spectrum of 360 archived
+$528\times8$ finite-difference Jacobians from three independent 120-polygon
+population studies (seeds 20260828--20260830).  The same relative threshold is
+used as below.  This pointwise diagnostic does not check constant rank on a
+neighborhood of an observation fiber.
+
 Central differences use the nondimensionalized parameter step $h=0.002$ and a
 relative singular-value threshold of $10^{-3}$ unless stated otherwise.  A
 step-size sweep from $10^{-2}$ to $10^{-6}$ checks the stability of this
@@ -949,6 +1107,25 @@ as an independent control on the dimension supplied to the first method.
 Local PCA uses a $10^{-2}$ relative eigenvalue threshold.  Greedy covering
 estimates are calibrated on Euclidean balls of known dimension at identical
 sample sizes.
+
+The learned-completion endpoint reuses a completed frozen protocol.  One
+six-entry mask was selected from regularized Gram log-determinant scores
+computed on 80 training Jacobians, before network fitting.  Specifically, the
+score averages $\log\det(J_MJ_M^\top+10^{-8}a_MI)$, where
+$a_M=\operatorname{tr}(J_MJ_M^\top)/6$, across the training Jacobians.  The selected mask
+maximized this score among 2,000 random six-entry candidates; 20 controls were
+sampled from the middle 80\% of the score ordering after excluding both
+extreme deciles.  Three conditional EDMs and three deterministic U-Nets, with network
+seeds 20260911--20260913, were selected only through validation checkpoints.
+Evaluation used 400 held-out polygons, normalized noise standard deviations
+$0$, $10^{-4}$, $3\times10^{-4}$, and $10^{-3}$, 18 EDM sampling steps, and 16
+learned conditional samples.  The EDM checkpoints at step 50,000 minimized
+validation EMA loss over 10,000-step candidates, and the U-Net checkpoints at
+step 10,000 minimized validation missing-entry MSE over 2,000-step candidates,
+for every seed.  The evaluation seed was 20260921.  The reported 95\% intervals
+use 10,000 crossed bootstrap replicates (seed 20261001), resampling the
+network-seed and polygon axes while holding the prespecified masks and the
+already aggregated sample axis fixed.
 
 The mesh comparison maps the same physical boundary-coordinate pairs to three
 refinements.  A separate complete-electrode-model (CEM) derivative diagnostic
@@ -988,15 +1165,32 @@ thresholded rank & predicted $8-r$ & nullspace start & full-$\R^8$ start\\
 \bottomrule
 \end{tabular}
 \end{table}
+\FloatBarrier
 
 The full-space experiment was repeated on ten held-out polygons stratified by
 admissibility margin.  All 30 recovered clouds matched the predicted PCA
-dimension.  Centered-difference Jacobians were recomputed at all accepted
-points: 1,138 of 1,138 retained the expected thresholded full row rank.  This
-checks numerical rank separation along the cloud; it does not certify exact
-differential rank.  For the endpoint $r=d=8$, 96 nearby full-space starts
-returned to one local solution, with maximum distance
-$1.1609\times10^{-7}$ from the base point.
+dimension.  The replicated clouds accepted 720 of 824 full-space starts.  All
+104 failures came from one near-boundary base polygon, whose recorded boundary
+margin was $3.23\times10^{-4}$.  Including the paired generator controls and
+the rank-eight endpoint, 1,104 of 1,208 starts were accepted; adding the 34
+base points gives the 1,138 points at which centered-difference Jacobians were
+recomputed.  All 1,138 accepted/base points retained the expected thresholded full
+row rank.  The earlier direct-continuation study separately accepted 960 of
+966 attempts; its six failures reached an iteration or line-search limit.
+Rejected candidate points, their singular values, and their admissibility
+margins were not archived.  Thus the rank-stability statement is explicitly
+conditioned on acceptance and does not resolve selection bias.  For the
+endpoint $r=d=8$, 96 nearby full-space starts returned to the same numerical
+solution, with maximum distance $1.1609\times10^{-7}$ from the base point,
+which is consistent with local isolation but does not establish it.
+
+All 360 complete-data Jacobians in the post-hoc image-rank audit had numerical
+rank eight at the $10^{-3}$ relative threshold; the minimum and median values
+of $\sigma_8/\sigma_1$ were $0.0237$ and $0.0865$.  Consequently, on these
+sampled points the numerical rank-difference formula gives $\ell=8-r$, not a
+stricter exponent.  This negative diagnostic neither certifies exact full rank
+nor excludes another component or distant part of a fiber with different
+rank.
 
 \subsection{Full spectrum, criticality, covering bias, and mesh sensitivity}
 
@@ -1005,7 +1199,15 @@ Across six right-singular directions, four residual radii, and both signs, the
 $[0.998971,1.000797]$.  On 48 separate rank-six linear ellipsoids, the
 full-spectrum logarithmic cover predictor had mean usable Spearman correlation
 $0.990$ with greedy cover count, versus $0.854$ for a surrogate that repeats
-only $\sigma_{\min}$.
+only $\sigma_{\min}$.  At the eight increasing cover scales, respectively,
+21, 13, 6, 4, 2, 1, 0, and 0 of the 48 empirical covers saturated at the
+360-point cloud size.  The declared criterion
+$0.1n<\operatorname{median}N_\varepsilon<0.9n$ retained the four coarsest
+scales; their per-scale correlations were $0.984$--$0.994$ for the full
+spectrum and $0.828$--$0.881$ for the surrogate.  Because both predictors and
+the sampled ellipsoids use the same linear singular spectrum, this is a
+finite-cloud formula calibration, not an independent validation of nonlinear
+EIT tube geometry.
 
 A same-rank near-critical mask had $\sigma_6=3.63\times10^{-4}$, versus
 $0.263$ for the stable mask, and amplified mean linearized parameter error by
@@ -1049,6 +1251,66 @@ normalized singular-direction widths $\sigma_iW_i/\delta$ from one; bottom
 right: full-spectrum and weakest-singular-value covering predictors.}
 \label{fig:mechanisms}
 \end{figure}
+
+\subsection{Learned conditional completion}
+
+Table~\ref{tab:learned-completion} reports the independently regenerated
+summary of the frozen learned study.  At zero added noise, the selected-mask
+EDM missing-entry error was $0.0271$, compared with $0.0483$ averaged across
+the 20 score-trimmed random controls.  The control/selected ratio was $1.781$ with crossed
+seed--polygon 95\% interval $[1.709,1.856]$.  The corresponding projected
+energy-score ratio was $1.826$ with interval $[1.754,1.904]$.
+
+\begin{table}[ht]
+\centering
+\caption{Held-out conditional EDM results.  Error ratios are control/selected;
+their intervals use crossed network-seed--polygon bootstrap resampling.}
+\label{tab:learned-completion}
+\begin{tabular}{lrrrr}
+\toprule
+noise s.d. & EDM selected & EDM control & error ratio [95\% CI]
+ & \shortstack{projected energy-score\\ratio}\\
+\midrule
+$0$ & 0.0271 & 0.0483 & 1.781 [1.709, 1.856] & 1.826\\
+$10^{-4}$ & 0.0274 & 0.0483 & 1.762 [1.688, 1.842] & 1.792\\
+$3\times10^{-4}$ & 0.0273 & 0.0484 & 1.777 [1.706, 1.854] & 1.822\\
+$10^{-3}$ & 0.0271 & 0.0484 & 1.781 [1.707, 1.864] & 1.821\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At zero noise, the U-Net selected and random errors were $0.0301$ and $0.0402$
+(ratio $1.334$).  Projected 90\% interval coverage was $0.862$ for the selected
+mask and $0.838$ across control masks.  Among the 20 control masks, the Spearman
+correlation between the training-only regularized Gram log-determinant score
+and held-out EDM error
+was $-0.812$, with crossed-bootstrap interval $[-0.847,-0.761]$.  The physical
+row-sum projection reduced the selected-mask residual by a factor of 8,594,
+while its projected/unprojected error ratio was $0.99982$.  The large residual
+factor is expected because the affine projection enforces the row-sum
+constraint by construction and leaves a denominator near numerical precision;
+it is not independent evidence of learned accuracy.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.97\textwidth]{learned_completion.pdf}
+\caption{Held-out learned-completion evidence.  Panels (a)--(b) relate the
+training-only spectral mask score to test losses across control masks, with the
+selected mask shown separately.  Panel (c) compares control/selected losses
+across noise levels, and panel (d) reports interval coverage.  This experiment
+uses equal-budget masks and EDM sampling; it is not a test of the pointwise
+DDPM entropy corollary or of an empirical $d-r$ learning rate.}
+\label{fig:learned-completion}
+\end{figure}
+\FloatBarrier
+
+All masks observe six entries.  The selected mask has mean training numerical
+rank six, while the control-mask means range from $5.65$ to $6.00$.  Thus this
+study supplies an actual conditional-generation endpoint and links a
+training-only full-spectrum score to held-out performance, but it does not
+separate residual dimension from conditioning, establish score approximation,
+or show that the entropy refinement reduces network sample complexity,
+training cost, or diffusion steps.
 
 \section{Supporting identities and interface checks}
 
@@ -1167,14 +1429,18 @@ collapses, and no uniform Lipschitz transport crosses the critical value.
 
 The mathematical results form the following chain.  Exact conditioning
 localizes the population law to a compact subset of a $(d-r)$-dimensional
-regular level set; noisy finite-resolution complexity resolves the complete
-whitened singular spectrum; quantitative
+regular level set; under the stated constant-rank hypotheses, restricted image
+rank can sharpen its image covering exponent to
+$\ell=\rank DF-\rank DH$; noisy finite-resolution
+complexity resolves the complete whitened singular spectrum; quantitative
 horizontal flow transports regular fibers; and coarea weighting turns this
 into conditional-law Wasserstein-1 regularity.  At the single scale required
 by the explicitly pinned arXiv-v2 external DDPM theorem, the entropy refinement
-supplies its covering input for almost every fixed regular observation,
-conditional on that theorem's other hypotheses.  The EIT experiments are
-consistent with the predicted local mechanisms.
+supplies its covering input for almost every fixed regular observation for
+which a positive certified exponent is selected, conditional on that theorem's
+other hypotheses.  The EIT experiments are consistent with the predicted
+local mechanisms, and the separate learned study supplies a conditional EDM
+completion endpoint without testing that DDPM theorem.
 
 The result is deliberately narrower than a complete conditional-diffusion
 theory.  The project has not established whole-prior EIT flow completeness,
