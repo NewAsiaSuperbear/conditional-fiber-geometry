@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "project_commit": "77e2203e6d5df42b457823eebe6626f1b1c3ded1",
+  "mathlib_commit": "71a80585ee495fc24472fd0eaffc89d94e4fd8d6",
+  "lean_toolchain": "leanprover/lean4:v4.34.0-rc2",
+  "updated_at": "2026-09-07T21:23:40+08:00",
+  "entries": [
+    {
+      "paper_label": null,
+      "work_package": "M00",
+      "lean_names": ["CFG.Model.observed_apply", "CFG.mem_fiber_iff", "CFG.fiber_disjoint", "CFG.isClosed_fiber", "CFG.isCompact_fiber", "CFG.isCompact_imageFiber"],
+      "status": "LEMMA_VERIFIED",
+      "last_result": "lake build succeeded (3050 jobs after adding the probability layer); #print axioms reported only propext, Classical.choice, and Quot.sound.",
+      "semantic_review": "Checked: these are foundational lemmas only, not a fiber-dimension or covering theorem."
+    },
+    {
+      "paper_label": "cor:image-rank-entropy",
+      "work_package": "M01",
+      "lean_names": ["CFG.ker_le_ker_comp", "CFG.kerRestrictToObservedKerEquiv", "CFG.finrank_range_restrictToObservedKer_add_finrank_range_comp", "CFG.finrank_range_comp_le_finrank_range", "CFG.finrank_range_restrictToObservedKer_eq_sub", "CFG.Model.hasFDerivAt_observed", "CFG.Model.hasFDerivAt_observed_and_rank_identity"],
+      "status": "LEMMA_VERIFIED",
+      "last_result": "The abstract identity, inequality/subtraction corollaries, and genuine H=P∘F derivative wrapper built successfully; #print axioms reported only propext, Classical.choice, and Quot.sound.",
+      "semantic_review": "Checked: no differentiability, local-rank, image-covering, or manifold conclusion is included."
+    },
+    {
+      "paper_label": "thm:fiber-entropy",
+      "work_package": "M02-M04",
+      "lean_names": ["CFG.Covering.externalCoveringNumber_union_le", "CFG.Covering.externalCoveringNumber_biUnion_finset_le", "CFG.Covering.isCover_image_lipschitzOn", "CFG.Covering.externalCoveringNumber_image_le_coveringNumber", "CFG.Covering.card_integerBox", "CFG.Covering.isCover_supNormBox_gridSteps", "CFG.Covering.gridCard_real_le_polynomial", "CFG.Covering.exists_coveringNumber_ball_le_gridSteps_of_finrank_eq", "CFG.Covering.coveringNumber_ball_le_gridSteps_with_coordinates", "CFG.Covering.coveringNumber_ne_top_of_isCompact", "CFG.Covering.coveringNumber_imageFiber_ne_top", "CFG.HasStrictFDerivAt.exists_localLipschitz_fiberChart_ball", "CFG.HasStrictFDerivAt.exists_localLipschitz_imageFiberChart_ball", "CFG.exists_surjective_outputProjection", "CFG.HasStrictFDerivAt.exists_projected_localLipschitz_fiberChart_ball", "CFG.exists_finite_projectedFiberAtlas", "CFG.exists_finite_projectedImageFiberAtlas", "CFG.exists_finite_projectedImageFiberAtlas_image_cover", "CFG.ProjectedImageFiberChartAt.exists_localImage_covering_bound", "CFG.ProjectedImageFiberChartAt.localImage_coveringNumber_le_coverBound", "CFG.ProjectedImageFiberChartAt.coverBound_mul_pow_le_coverCoefficient", "CFG.exists_imageFiber_coveringNumber_le_sum_chartCoverBound", "CFG.exists_imageFiber_coveringNumber_polynomial_certificate", "CFG.exists_imageFiber_coveringNumber_inversePower_certificate", "CFG.exists_imageFiber_log_covering_certificate", "CFG.finite_fiber_of_fullRank_strictFDeriv"],
+      "status": "PARTIAL_VERIFIED",
+      "last_result": "The derivative-built finite image atlas now yields a common-radius finite sum, one positive C with natural certificates N ≤ C/epsilon^(d-r), and for nonempty fibers the logarithmic bound log N ≤ log C+(d-r)log(1/epsilon), for every 0<epsilon≤1.",
+      "semantic_review": "The M03 covering branch from genuine strict derivatives through finite charts to inverse-power and logarithmic entropy certificates is constructed rather than assumed. Exact embedded-manifold dimension and the M04 restricted-image-rank refinement are still not claimed."
+    },
+    {
+      "paper_label": "prop:conditional-support",
+      "work_package": "M05",
+      "lean_names": ["CFG.Probability.ae_kernel_measure_eq_one_of_lintegral_compl_eq_zero", "CFG.Probability.ae_kernel_section_measure_eq_one", "CFG.Probability.ae_condKernel_section_measure_eq_one", "CFG.Probability.ae_condDistrib_levelSet_measure_eq_one", "CFG.Probability.ae_condDistrib_fiber_measure_eq_one", "CFG.Probability.ae_support_map_condDistrib_subset_imageFiber", "CFG.Probability.ae_condDistrib_randomMask_fiber_measure_eq_one", "CFG.Probability.ae_support_map_condDistrib_randomMask_subset_imageFiber", "CFG.Probability.ae_condDistrib_dependentRandomMask_fiber_measure_eq_one", "CFG.Probability.ae_support_map_condDistrib_dependentRandomMask_subset_imageFiber", "CFG.Probability.measurable_taggedObservation", "CFG.Probability.measurableSet_taggedFiberRelation", "CFG.Probability.ae_condDistrib_countableDependentRandomMask_fiber_measure_eq_one", "CFG.Probability.ae_support_map_condDistrib_countableDependentRandomMask_subset_imageFiber"],
+      "status": "CONDITIONAL_VERIFIED",
+      "last_result": "The genuine condDistrib statements compile for a single observation, a common-dimensional random mask, and a countable dependent mask family with concrete Sigma-valued tagged observations of varying dimension and automatically proved measurability.",
+      "semantic_review": "The law of (V,M) is arbitrary, so no independence is assumed, and the ae base is the actual tagged-observation pushforward. For countable mask types with measurable singletons, the tagged map, defining equation, and tagged fiber relation are now constructed internally; conclusions remain almost everywhere rather than at null observations."
+    },
+    {
+      "paper_label": "thm:linear-tube / cor:whitened",
+      "work_package": "M06",
+      "lean_names": ["CFG.LinearTube.norm_map_sub_le_two_mul", "CFG.LinearTube.norm_sub_le_two_mul", "CFG.LinearTube.whitened_residual_eq", "CFG.LinearTube.mem_whitened_tube_iff", "CFG.LinearTube.diagonalObservationCLM", "CFG.LinearTube.diagonalTube_subset_coordinateBox", "CFG.Covering.card_anisoIntegerBox", "CFG.Covering.isCover_anisoBox_gridSteps", "CFG.Covering.externalCoveringNumber_diagonalCoordinateBox_le", "CFG.Covering.externalCoveringNumber_diagonalTube_le"],
+      "status": "EXPLICIT_DIAGONAL_MODEL_VERIFIED",
+      "last_result": "The explicit diagonal spectral tube is contained in a live/kernel coordinate box and has a genuine finite anisotropic product-grid cover with the exact ceiling-product cardinality bound from the specification.",
+      "semantic_review": "The diagonal model is complete through the product covering bound. A general-operator SVD/isometric spectral-frame transport and SPD whitening construction remain open."
+    },
+    {
+      "paper_label": "lem:quantitative-graph / cor:uniform-fiber",
+      "work_package": "M07-M08",
+      "lean_names": ["CFG.QuantitativeGraph.radius_square_lt", "CFG.QuantitativeGraph.contraction_factor_lt_one", "CFG.QuantitativeGraph.contraction_maps_ball", "CFG.QuantitativeGraph.inverse_stability_ratio_le", "CFG.uniformRadius_pos", "CFG.mul_uniformRadius_le"],
+      "status": "LEMMA_VERIFIED",
+      "last_result": "All four advertised scalar contraction inequalities and the division-safe common-radius arithmetic compile.",
+      "semantic_review": "The Banach fixed-point graph construction, spectral ellipsoid inclusion, and uniform covering theorem remain unproved."
+    },
+    {
+      "paper_label": "lem:pinv",
+      "work_package": "M09",
+      "lean_names": ["CFG.surjectiveGram", "CFG.surjectivePseudoinverse", "CFG.surjectiveGram_isInvertible", "CFG.comp_surjectivePseudoinverse", "CFG.inner_surjectivePseudoinverse_eq_zero_of_mem_ker", "CFG.norm_surjectivePseudoinverse_le_of_image_eq", "CFG.surjectivePseudoinverse_comp_isSelfAdjoint", "CFG.norm_surjectivePseudoinverse_comp_le_one", "CFG.norm_surjectivePseudoinverse_le", "CFG.surjectivePseudoinverse_mem_ker_orthogonal", "CFG.norm_surjectivePseudoinverse_le_inv_of_lower_bound", "CFG.adjointCLM", "CFG.HasFDerivAt.adjoint_clm", "CFG.hasFDerivAt_surjectiveGram", "CFG.hasFDerivAt_gram_inverse", "CFG.hasFDerivAt_surjectivePseudoinverse", "CFG.adjoint_gram_inverse", "CFG.fderiv_surjectivePseudoinverse_apply", "CFG.norm_one_sub_surjectivePseudoinverse_comp_le_one", "CFG.norm_fderiv_surjectivePseudoinverse_apply_le", "CFG.norm_fderiv_surjectivePseudoinverse_apply_le_of_lower_bound", "CFG.norm_fderiv_surjectivePseudoinverse_apply_le_of_lipschitz"],
+      "status": "DERIVATIVE_AND_BOUND_VERIFIED",
+      "last_result": "For a differentiable family of genuine surjective finite-dimensional real Hilbert-space operators, the canonical pseudoinverse has the closed derivative formula, bounds 2||E||/s^2, and under ||BPrime v|| <= L||v|| the chain-ready bound (2L/s^2)||v||.",
+      "semantic_review": "The Moore-Penrose construction, differentiability, closed formula, reciprocal 1/s norm bound, and derivative Lipschitz constant 2L/s^2 are internal. Equality with a separately defined sigma_min and identifying BPrime with a concrete Hessian remain open."
+    },
+    {
+      "paper_label": "thm:measure-transport",
+      "work_package": "M12",
+      "lean_names": ["CFG.Analysis.abs_sub_one_le_ratio_mul_add", "CFG.Analysis.half_integral_abs_sub_one_le_ratio", "CFG.Analysis.exp_ratio_eq_tanh_half", "CFG.Analysis.half_integral_abs_sub_one_le_tanh", "CFG.Transport.withDensity_ofReal_real_apply", "CFG.Transport.isProbabilityMeasure_withDensity_ofReal", "CFG.Transport.abs_withDensity_event_sub_le_half_integral", "CFG.Transport.abs_withDensity_event_sub_le_ratio", "CFG.Transport.abs_withDensity_event_sub_le_tanh", "CFG.Transport.abs_withDensity_event_sub_attains_half_integral", "CFG.Transport.half_integral_abs_sub_one_eq_iSup_event_abs", "CFG.Transport.iSup_event_abs_le_tanh"],
+      "status": "LEMMA_VERIFIED",
+      "last_result": "The sharp normalized-density half-L1 bound is connected to genuine withDensity probability measures; the measurable event {f >= 1} attains it and the supremum over all measurable event deviations equals it.",
+      "semantic_review": "Density measurability is explicit, matching the specification. Transport coupling, Wasserstein bound, and the geometric weight path remain open."
+    },
+    {
+      "paper_label": "thm:moving-manifold / cor:ddpm",
+      "work_package": "M13-M15",
+      "lean_names": ["CFG.isClosedEmbedding_restrict_of_isCompact", "CFG.isEmbedding_restrict_of_isCompact", "CFG.Smoothing.kernel_sub_eq_intervalIntegral", "CFG.Smoothing.integral_norm_kernel_sub_le", "CFG.Smoothing.integral_norm_kernel_sub_le_fderiv", "CFG.Smoothing.integral_norm_kernel_sub_le_fderiv_of_bound", "CFG.Smoothing.integral_norm_integral_le_of_pointwise_l1_bound", "CFG.Smoothing.integral_norm_integral_le_integral_integral_norm_sfinite", "CFG.Smoothing.integral_norm_coupledKernelDifference_le_of_integrable", "CFG.Smoothing.integral_norm_coupledKernelDifference_le_fderiv", "CFG.External.log_one_div_rpow_neg", "CFG.External.entropy_bound_at_polynomial_resolution"],
+      "status": "PARTIAL_VERIFIED",
+      "last_result": "The compact-injective embedding step, genuine one- and finite-dimensional Banach-valued kernel L1 translation theorems with finite-coupling mixture bounds, and exact polynomial-resolution entropy substitution compile.",
+      "semantic_review": "Tangent/curvature estimates, finite-dimensional Gaussian constants, Wasserstein infimum packaging, and the external DDPM convergence theorem remain unproved."
+    },
+    {
+      "paper_label": "prop:projection / prop:mmse / prop:cem",
+      "work_package": "M16-M18",
+      "lean_names": ["CFG.norm_affineProjection_sub_le", "CFG.euclideanSq_weightedUpperFlatten_eq_frobeniusSq", "CFG.euclideanNorm_weightedUpperFlatten_eq_frobeniusNorm", "CFG.weighted_rowSum_entrywiseNormalize_eq_zero", "CFG.Statistics.posteriorPrecision_mul_posteriorCovariance", "CFG.Statistics.posteriorCovariance_mul_posteriorPrecision", "CFG.Statistics.posteriorPrecision_isSymm", "CFG.Statistics.posteriorCovariance_isSymm", "CFG.Statistics.coe_condExpL2", "CFG.Statistics.sq_norm_sub_eq_sq_sub_condExpL2_add", "CFG.Statistics.norm_sub_condExpL2_le", "CFG.hasFDerivAt_ringInverse_comp", "CFG.discreteSchurResponse_eq_invOf", "CFG.discreteSchurResponse_isSymm", "CFG.discreteSchurResponse_posSemidef", "CFG.discreteSchurResponse_posDef", "CFG.discreteSchurResponse_energy_nonneg", "CFG.discreteSchurResponse_mulVec_eq_zero_of_blockGauge", "CFG.discreteSchurResponse_const_mem_kernel", "CFG.discreteSchurResponse_rowSum_eq_zero"],
+      "status": "PARTIAL_VERIFIED",
+      "last_result": "Affine compatible projection non-expansion, exact sqrt(2)-weighted symmetric-matrix flattening/Frobenius isometry, safe background-weighted normalization, MMSE matrix algebra, genuine condExpL2 Pythagorean risk minimality, inverse differentiation, and discrete Schur symmetry/positivity/gauge results compile.",
+      "semantic_review": "The Gaussian conditional covariance and final trace risk identity, derivation of block positivity/gauge from an actual FEM assembly, and continuous CEM/shape calculus remain unproved. The weighted row-sum result explicitly assumes compatibility at zero background entries."
+    },
+    {
+      "paper_label": null,
+      "work_package": "M19",
+      "lean_names": ["CFG.norm_id_sub_comp_le_of_approx", "CFG.exists_rightInverse_norm_le_of_norm_id_sub_comp_lt_one", "CFG.exists_rightInverse_norm_le_of_approx", "CFG.surjective_of_approx_rightInverse", "CFG.norm_matrixEuclideanCLM_le_sqrt_frobeniusSq", "CFG.norm_matrixEuclideanCLM_le_of_frobeniusSq_le_sq", "CFG.exists_rightInverse_of_matrix_frobenius_certificate", "CFG.exists_rightInverse_on_closedBall_of_lipschitz_error", "CFG.exists_rightInverse_fderiv_on_closedBall", "CFG.Examples.exists_scalar_two_rightInverse_norm_le"],
+      "status": "CERTIFICATE_CORE_VERIFIED",
+      "last_result": "The approximate-right-inverse Neumann construction is now fed by exact finite matrix Frobenius sums; a Lipschitz derivative-error hypothesis propagates the right inverse and its norm bound uniformly across a closed ball, including an actual fderiv specialization.",
+      "semantic_review": "This is a mathematical certificate interface. No real FEM input hash, interval parser, independently validated numerical matrix, or derivative truncation estimate is supplied; those data must discharge the explicit finite inequalities."
+    },
+    {
+      "paper_label": null,
+      "work_package": "M20",
+      "lean_names": ["CFG.Statistics.uniformRank_interior_probability", "CFG.Statistics.uniformRank_sixteen_probability", "CFG.Statistics.Exchangeable", "CFG.Statistics.NoTies", "CFG.Statistics.exchangeable_coordinateRank_eq_uniform", "CFG.Statistics.exchangeable_truthRank_eq_uniform", "CFG.Statistics.exchangeable_truthRank_interior_probability", "CFG.Statistics.exchangeable_truthRank_sixteen_probability", "CFG.Statistics.measurableSet_prod_diagonal", "CFG.Statistics.prod_diagonal_eq_zero", "CFG.Statistics.ae_prod_fst_ne_snd", "CFG.Statistics.iidPairMarginal", "CFG.Statistics.iidPi_ae_ne", "CFG.Statistics.iidPi_ae_injective", "CFG.Statistics.iidPi_reindex_eq", "CFG.Statistics.fullPairSum_eq_offDiagonalPairSum", "CFG.Statistics.vPairMean_eq_factor_mul_uPairMean", "CFG.Statistics.twoPointExpectedEnergy_minimized_at_half", "CFG.Statistics.twoPointNormalizedExpectedEnergy_minimized_at_third", "CFG.Statistics.normalizedEnergy_third_lt_half"],
+      "status": "PARTIAL_VERIFIED",
+      "last_result": "The uniform-rank calculation has a complete finite-joint-PMF bridge; finite iid product measures are invariant under every coordinate permutation, and atomless ones have exact pair marginals and an almost-surely injective coordinate vector; the exact V/U factor and two-point score counterexample also compile.",
+      "semantic_review": "The remaining statistical bridge is to combine measure-level iid exchangeability and almost-sure no ties into uniformity of the finite-valued rank pushforward; experiment provenance is separate and not a proof input."
+    }
+  ]
+}

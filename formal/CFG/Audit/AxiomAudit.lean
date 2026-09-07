@@ -1,0 +1,399 @@
+import CFG.Basic.Fiber
+import CFG.Analysis.NormalizedWeights
+import CFG.LinearAlgebra.RestrictedRank
+import CFG.LinearAlgebra.RightInverseCertificate
+import CFG.LinearAlgebra.AffineProjection
+import CFG.LinearAlgebra.DiscreteSchur
+import CFG.LinearAlgebra.DiscreteSchurProperties
+import CFG.LinearAlgebra.SurjectivePseudoinverse
+import CFG.LinearAlgebra.WeightedFlattening
+import CFG.LinearAlgebra.FrobeniusCertificate
+import CFG.Calculus.ObservedDerivative
+import CFG.Covering.FiniteCover
+import CFG.Covering.BoxGrid
+import CFG.Covering.FiniteDimensionalBall
+import CFG.Covering.ImageFiberAtlas
+import CFG.Covering.LinearTube
+import CFG.Covering.DiagonalTubeCover
+import CFG.Covering.CompactFiber
+import CFG.Calculus.LocalFiberChart
+import CFG.Calculus.RankProjection
+import CFG.Calculus.FiniteFiberAtlas
+import CFG.Calculus.FiniteImageFiberAtlas
+import CFG.Calculus.QuantitativeConstants
+import CFG.Calculus.UniformRadius
+import CFG.Calculus.InverseFamily
+import CFG.Calculus.PseudoinverseDerivative
+import CFG.Probability.ConditionalSupport
+import CFG.Probability.FiniteMask
+import CFG.Transport.TotalVariation
+import CFG.Smoothing.KernelTranslation
+import CFG.Smoothing.KernelTranslationFiniteDim
+import CFG.Statistics.NormalizedEnergyScore
+import CFG.Statistics.VUStatistic
+import CFG.Statistics.MMSEAlgebra
+import CFG.Statistics.ConditionalExpectationRisk
+import CFG.Statistics.RankInterval
+import CFG.Statistics.ExchangeableRank
+import CFG.Statistics.ProductNoTies
+import CFG.Statistics.IIDNoTies
+import CFG.Statistics.IIDExchangeable
+import CFG.External.EntropyScale
+import CFG.Topology.CompactEmbedding
+import CFG.Examples.ScopeCounterexamples
+import CFG.Examples.RightInverseToy
+
+/-!
+# Axiom audit
+
+This file is imported by the production root so every declaration currently
+reported as verified participates in `lake build`.
+-/
+
+#print CFG.Model.observed_apply
+#print CFG.mem_fiber_iff
+#print CFG.fiber_disjoint
+#print CFG.isClosed_fiber
+#print CFG.isCompact_fiber
+#print CFG.isCompact_imageFiber
+#print CFG.ker_le_ker_comp
+#print CFG.kerRestrictToObservedKerEquiv
+#print CFG.finrank_range_restrictToObservedKer_add_finrank_range_comp
+#print CFG.finrank_range_comp_le_finrank_range
+#print CFG.finrank_range_restrictToObservedKer_eq_sub
+#print CFG.Model.hasFDerivAt_observed
+#print CFG.Model.hasFDerivAt_observed_and_rank_identity
+#print CFG.Covering.externalCoveringNumber_union_le
+#print CFG.Covering.externalCoveringNumber_biUnion_finset_le
+#print CFG.Covering.isCover_image_lipschitzOn
+#print CFG.Covering.externalCoveringNumber_image_le_coveringNumber
+#print CFG.Covering.coveringNumber_image_le_coveringNumber
+#print CFG.Covering.externalCoveringNumber_biUnion_image_le
+#print CFG.Covering.coveringNumber_ne_top_of_isCompact
+#print CFG.LinearTube.norm_map_sub_le_two_mul
+#print CFG.LinearTube.norm_sub_le_two_mul
+#print CFG.LinearTube.whitened_residual_eq
+#print CFG.LinearTube.mem_whitened_tube_iff
+#print CFG.LinearTube.diagonalTube_subset_coordinateBox
+#print CFG.Covering.card_anisoIntegerBox
+#print CFG.Covering.isCover_anisoBox_gridSteps
+#print CFG.Covering.externalCoveringNumber_diagonalCoordinateBox_le
+#print CFG.Covering.externalCoveringNumber_diagonalTube_le
+#print CFG.Covering.coveringNumber_imageFiber_ne_top
+#print CFG.HasStrictFDerivAt.exists_localLipschitz_fiberChart
+#print CFG.HasStrictFDerivAt.exists_localLipschitz_fiberChart_ball
+#print CFG.HasStrictFDerivAt.exists_localLipschitz_imageFiberChart_ball
+#print CFG.exists_surjective_outputProjection
+#print CFG.HasStrictFDerivAt.exists_projected_localLipschitz_fiberChart
+#print CFG.HasStrictFDerivAt.exists_projected_localLipschitz_fiberChart_ball
+#print CFG.exists_finite_projectedFiberAtlas
+#print CFG.exists_finite_projectedImageFiberAtlas
+#print CFG.exists_finite_projectedImageFiberAtlas_image_cover
+#print CFG.ProjectedImageFiberChartAt.exists_localImage_covering_bound
+#print CFG.finite_fiber_of_fullRank_strictFDeriv
+#print CFG.Covering.card_integerBox
+#print CFG.Covering.isCover_supNormBox_gridSteps
+#print CFG.Covering.externalCoveringNumber_supNormBox_le_gridSteps
+#print CFG.Covering.gridCard_real_le_polynomial
+#print CFG.Covering.exists_coveringNumber_ball_le_gridSteps_of_finrank_eq
+#print CFG.QuantitativeGraph.radius_square_lt
+#print CFG.QuantitativeGraph.contraction_factor_lt_one
+#print CFG.QuantitativeGraph.contraction_maps_ball
+#print CFG.QuantitativeGraph.inverse_stability_ratio_le
+#print CFG.uniformRadius_of_eq_zero
+#print CFG.uniformRadius_pos
+#print CFG.uniformRadius_le_half
+#print CFG.mul_uniformRadius_le
+#print CFG.hasFDerivAt_ringInverse_comp
+#print CFG.HasFDerivAt.adjoint_clm
+#print CFG.hasFDerivAt_surjectiveGram
+#print CFG.hasFDerivAt_gram_inverse
+#print CFG.hasFDerivAt_surjectivePseudoinverse
+#print CFG.adjoint_gram_inverse
+#print CFG.fderiv_surjectivePseudoinverse_apply
+#print CFG.norm_one_sub_surjectivePseudoinverse_comp_le_one
+#print CFG.norm_fderiv_surjectivePseudoinverse_apply_le
+#print CFG.norm_fderiv_surjectivePseudoinverse_apply_le_of_lower_bound
+#print CFG.norm_fderiv_surjectivePseudoinverse_apply_le_of_lipschitz
+#print CFG.Probability.ae_kernel_measure_eq_one_of_lintegral_compl_eq_zero
+#print CFG.Probability.ae_kernel_section_measure_eq_one
+#print CFG.Probability.ae_condKernel_section_measure_eq_one
+#print CFG.Probability.ae_condDistrib_relation_section_eq_one
+#print CFG.Probability.ae_condDistrib_levelSet_measure_eq_one
+#print CFG.Probability.ae_condDistrib_fiber_measure_eq_one
+#print CFG.Probability.ae_support_map_condDistrib_subset_imageFiber
+#print CFG.Probability.ae_condDistrib_randomMask_fiber_measure_eq_one
+#print CFG.Probability.ae_support_map_condDistrib_randomMask_subset_imageFiber
+#print CFG.Probability.ae_condDistrib_dependentRandomMask_fiber_measure_eq_one
+#print CFG.Probability.ae_support_map_condDistrib_dependentRandomMask_subset_imageFiber
+#print CFG.Analysis.abs_sub_one_le_ratio_mul_add
+#print CFG.Analysis.half_integral_abs_sub_one_le_ratio
+#print CFG.Analysis.exp_ratio_eq_tanh_half
+#print CFG.Analysis.half_integral_abs_sub_one_le_tanh
+#print CFG.Transport.abs_withDensity_event_sub_le_half_integral
+#print CFG.Transport.abs_withDensity_event_sub_le_ratio
+#print CFG.Transport.abs_withDensity_event_sub_le_tanh
+#print CFG.Transport.abs_withDensity_event_sub_attains_half_integral
+#print CFG.Transport.half_integral_abs_sub_one_eq_iSup_event_abs
+#print CFG.Transport.iSup_event_abs_le_tanh
+#print CFG.Smoothing.integral_norm_kernel_sub_le
+#print CFG.Smoothing.integral_norm_coupledKernelDifference_le_of_integrable
+#print CFG.Smoothing.integral_norm_kernel_sub_le_fderiv
+#print CFG.Smoothing.integral_norm_kernel_sub_le_fderiv_of_bound
+#print CFG.Smoothing.integral_norm_integral_le_integral_integral_norm_sfinite
+#print CFG.Smoothing.integral_norm_coupledKernelDifference_le_fderiv
+#print CFG.Statistics.twoPointExpectedEnergy_eq_square
+#print CFG.Statistics.twoPointNormalizedExpectedEnergy_eq_square
+#print CFG.Statistics.twoPointExpectedEnergy_minimized_at_half
+#print CFG.Statistics.twoPointExpectedEnergy_eq_at_half_iff
+#print CFG.Statistics.twoPointNormalizedExpectedEnergy_minimized_at_third
+#print CFG.Statistics.twoPointNormalizedExpectedEnergy_eq_at_third_iff
+#print CFG.Statistics.normalizedEnergy_third_lt_half
+#print CFG.Statistics.fullPairSum_eq_offDiagonalPairSum
+#print CFG.Statistics.vPairMean_eq_factor_mul_uPairMean
+#print CFG.Statistics.half_vPairMean_eq_factor_mul_half_uPairMean
+#print CFG.Statistics.posteriorPrecision_mul_posteriorCovariance
+#print CFG.Statistics.posteriorCovariance_mul_posteriorPrecision
+#print CFG.Statistics.posteriorPrecision_isSymm
+#print CFG.Statistics.posteriorCovariance_isSymm
+#print CFG.Statistics.coe_condExpL2
+#print CFG.Statistics.sq_norm_sub_eq_sq_sub_condExpL2_add
+#print CFG.Statistics.norm_sub_condExpL2_le
+#print CFG.Statistics.interiorRank_injective
+#print CFG.Statistics.uniformRank_interior_probability
+#print CFG.Statistics.uniformRank_sixteen_probability
+#print CFG.Statistics.exchangeable_coordinateRank_eq_uniform
+#print CFG.Statistics.exchangeable_truthRank_interior_probability
+#print CFG.Statistics.exchangeable_truthRank_sixteen_probability
+#print CFG.Statistics.measurableSet_prod_diagonal
+#print CFG.Statistics.prod_diagonal_eq_zero
+#print CFG.Statistics.ae_prod_fst_ne_snd
+#print CFG.Statistics.iidPairMarginal
+#print CFG.Statistics.iidPi_ae_ne
+#print CFG.Statistics.iidPi_ae_injective
+#print CFG.Statistics.iidPi_reindex_eq
+#print CFG.External.log_one_div_rpow_neg
+#print CFG.External.entropy_bound_at_polynomial_resolution
+#print CFG.isClosedEmbedding_restrict_of_isCompact
+#print CFG.isEmbedding_restrict_of_isCompact
+#print CFG.Examples.hasFDerivAt_firstObservation
+#print CFG.Examples.firstObservation_level_infinite
+#print CFG.Examples.radiusSq_increment
+#print CFG.Examples.completeDropThird_level_image
+#print CFG.Examples.negative_radiusSq_level_empty
+#print CFG.Examples.square_zero_level_singleton
+#print CFG.Examples.scalar_two_comp_half
+#print CFG.Examples.exists_scalar_two_rightInverse_norm_le
+#print CFG.norm_id_sub_comp_le_of_approx
+#print CFG.exists_rightInverse_of_norm_id_sub_comp_lt_one
+#print CFG.exists_rightInverse_norm_le_of_norm_id_sub_comp_lt_one
+#print CFG.exists_rightInverse_of_approx
+#print CFG.exists_rightInverse_norm_le_of_approx
+#print CFG.surjective_of_approx_rightInverse
+#print CFG.affineProjection_sub_mem
+#print CFG.affineProjection_eq_self
+#print CFG.norm_affineProjection_sub_le
+#print CFG.isSymm_nonsingInv
+#print CFG.discreteSchurResponse_eq_invOf
+#print CFG.discreteSchurResponse_isSymm
+#print CFG.discreteSchurResponse_posSemidef
+#print CFG.discreteSchurResponse_posDef
+#print CFG.discreteSchurResponse_rowSum_eq_zero
+#print CFG.surjectiveGram_isInvertible
+#print CFG.comp_surjectivePseudoinverse
+#print CFG.norm_surjectivePseudoinverse_le_of_image_eq
+#print CFG.surjectivePseudoinverse_comp_isSelfAdjoint
+#print CFG.norm_surjectivePseudoinverse_comp_le_one
+#print CFG.surjectivePseudoinverse_mem_ker_orthogonal
+#print CFG.norm_surjectivePseudoinverse_le_inv_of_lower_bound
+#print CFG.Covering.coveringNumber_ball_le_gridSteps_with_coordinates
+#print CFG.ProjectedImageFiberChartAt.localImage_coveringNumber_le_coverBound
+#print CFG.exists_imageFiber_coveringNumber_le_sum_chartCoverBound
+#print CFG.ProjectedImageFiberChartAt.coverBound_mul_pow_le_coverCoefficient
+#print CFG.exists_imageFiber_coveringNumber_polynomial_certificate
+#print CFG.exists_imageFiber_coveringNumber_inversePower_certificate
+#print CFG.exists_imageFiber_log_covering_certificate
+#print CFG.Probability.ae_condDistrib_countableDependentRandomMask_fiber_measure_eq_one
+#print CFG.Probability.ae_support_map_condDistrib_countableDependentRandomMask_subset_imageFiber
+#print CFG.euclideanSq_weightedUpperFlatten_eq_frobeniusSq
+#print CFG.euclideanNorm_weightedUpperFlatten_eq_frobeniusNorm
+#print CFG.weighted_rowSum_entrywiseNormalize_eq_zero
+#print CFG.norm_matrixEuclideanCLM_le_sqrt_frobeniusSq
+#print CFG.norm_matrixEuclideanCLM_le_of_frobeniusSq_le_sq
+#print CFG.exists_rightInverse_of_matrix_frobenius_certificate
+#print CFG.exists_rightInverse_on_closedBall_of_lipschitz_error
+#print CFG.exists_rightInverse_fderiv_on_closedBall
+
+#print axioms CFG.Model.observed_apply
+#print axioms CFG.mem_fiber_iff
+#print axioms CFG.fiber_disjoint
+#print axioms CFG.isClosed_fiber
+#print axioms CFG.isCompact_fiber
+#print axioms CFG.isCompact_imageFiber
+#print axioms CFG.ker_le_ker_comp
+#print axioms CFG.kerRestrictToObservedKerEquiv
+#print axioms CFG.finrank_range_restrictToObservedKer_add_finrank_range_comp
+#print axioms CFG.finrank_range_comp_le_finrank_range
+#print axioms CFG.finrank_range_restrictToObservedKer_eq_sub
+#print axioms CFG.Model.hasFDerivAt_observed
+#print axioms CFG.Model.hasFDerivAt_observed_and_rank_identity
+#print axioms CFG.Covering.externalCoveringNumber_union_le
+#print axioms CFG.Covering.externalCoveringNumber_biUnion_finset_le
+#print axioms CFG.Covering.isCover_image_lipschitzOn
+#print axioms CFG.Covering.externalCoveringNumber_image_le_coveringNumber
+#print axioms CFG.Covering.coveringNumber_image_le_coveringNumber
+#print axioms CFG.Covering.externalCoveringNumber_biUnion_image_le
+#print axioms CFG.Covering.coveringNumber_ne_top_of_isCompact
+#print axioms CFG.LinearTube.norm_map_sub_le_two_mul
+#print axioms CFG.LinearTube.norm_sub_le_two_mul
+#print axioms CFG.LinearTube.whitened_residual_eq
+#print axioms CFG.LinearTube.mem_whitened_tube_iff
+#print axioms CFG.LinearTube.diagonalTube_subset_coordinateBox
+#print axioms CFG.Covering.card_anisoIntegerBox
+#print axioms CFG.Covering.isCover_anisoBox_gridSteps
+#print axioms CFG.Covering.externalCoveringNumber_diagonalCoordinateBox_le
+#print axioms CFG.Covering.externalCoveringNumber_diagonalTube_le
+#print axioms CFG.Covering.coveringNumber_imageFiber_ne_top
+#print axioms CFG.HasStrictFDerivAt.exists_localLipschitz_fiberChart
+#print axioms CFG.HasStrictFDerivAt.exists_localLipschitz_fiberChart_ball
+#print axioms CFG.HasStrictFDerivAt.exists_localLipschitz_imageFiberChart_ball
+#print axioms CFG.exists_surjective_outputProjection
+#print axioms CFG.HasStrictFDerivAt.exists_projected_localLipschitz_fiberChart
+#print axioms CFG.HasStrictFDerivAt.exists_projected_localLipschitz_fiberChart_ball
+#print axioms CFG.exists_finite_projectedFiberAtlas
+#print axioms CFG.exists_finite_projectedImageFiberAtlas
+#print axioms CFG.exists_finite_projectedImageFiberAtlas_image_cover
+#print axioms CFG.ProjectedImageFiberChartAt.exists_localImage_covering_bound
+#print axioms CFG.finite_fiber_of_fullRank_strictFDeriv
+#print axioms CFG.Covering.card_integerBox
+#print axioms CFG.Covering.isCover_supNormBox_gridSteps
+#print axioms CFG.Covering.externalCoveringNumber_supNormBox_le_gridSteps
+#print axioms CFG.Covering.gridCard_real_le_polynomial
+#print axioms CFG.Covering.exists_coveringNumber_ball_le_gridSteps_of_finrank_eq
+#print axioms CFG.QuantitativeGraph.radius_square_lt
+#print axioms CFG.QuantitativeGraph.contraction_factor_lt_one
+#print axioms CFG.QuantitativeGraph.contraction_maps_ball
+#print axioms CFG.QuantitativeGraph.inverse_stability_ratio_le
+#print axioms CFG.uniformRadius_of_eq_zero
+#print axioms CFG.uniformRadius_pos
+#print axioms CFG.uniformRadius_le_half
+#print axioms CFG.mul_uniformRadius_le
+#print axioms CFG.hasFDerivAt_ringInverse_comp
+#print axioms CFG.HasFDerivAt.adjoint_clm
+#print axioms CFG.hasFDerivAt_surjectiveGram
+#print axioms CFG.hasFDerivAt_gram_inverse
+#print axioms CFG.hasFDerivAt_surjectivePseudoinverse
+#print axioms CFG.adjoint_gram_inverse
+#print axioms CFG.fderiv_surjectivePseudoinverse_apply
+#print axioms CFG.norm_one_sub_surjectivePseudoinverse_comp_le_one
+#print axioms CFG.norm_fderiv_surjectivePseudoinverse_apply_le
+#print axioms CFG.norm_fderiv_surjectivePseudoinverse_apply_le_of_lower_bound
+#print axioms CFG.norm_fderiv_surjectivePseudoinverse_apply_le_of_lipschitz
+#print axioms CFG.Probability.ae_kernel_measure_eq_one_of_lintegral_compl_eq_zero
+#print axioms CFG.Probability.ae_kernel_section_measure_eq_one
+#print axioms CFG.Probability.ae_condKernel_section_measure_eq_one
+#print axioms CFG.Probability.ae_condDistrib_relation_section_eq_one
+#print axioms CFG.Probability.ae_condDistrib_levelSet_measure_eq_one
+#print axioms CFG.Probability.ae_condDistrib_fiber_measure_eq_one
+#print axioms CFG.Probability.ae_support_map_condDistrib_subset_imageFiber
+#print axioms CFG.Probability.ae_condDistrib_randomMask_fiber_measure_eq_one
+#print axioms CFG.Probability.ae_support_map_condDistrib_randomMask_subset_imageFiber
+#print axioms CFG.Probability.ae_condDistrib_dependentRandomMask_fiber_measure_eq_one
+#print axioms CFG.Probability.ae_support_map_condDistrib_dependentRandomMask_subset_imageFiber
+#print axioms CFG.Analysis.abs_sub_one_le_ratio_mul_add
+#print axioms CFG.Analysis.half_integral_abs_sub_one_le_ratio
+#print axioms CFG.Analysis.exp_ratio_eq_tanh_half
+#print axioms CFG.Analysis.half_integral_abs_sub_one_le_tanh
+#print axioms CFG.Transport.abs_withDensity_event_sub_le_half_integral
+#print axioms CFG.Transport.abs_withDensity_event_sub_le_ratio
+#print axioms CFG.Transport.abs_withDensity_event_sub_le_tanh
+#print axioms CFG.Transport.abs_withDensity_event_sub_attains_half_integral
+#print axioms CFG.Transport.half_integral_abs_sub_one_eq_iSup_event_abs
+#print axioms CFG.Transport.iSup_event_abs_le_tanh
+#print axioms CFG.Smoothing.integral_norm_kernel_sub_le
+#print axioms CFG.Smoothing.integral_norm_coupledKernelDifference_le_of_integrable
+#print axioms CFG.Smoothing.integral_norm_kernel_sub_le_fderiv
+#print axioms CFG.Smoothing.integral_norm_kernel_sub_le_fderiv_of_bound
+#print axioms CFG.Smoothing.integral_norm_integral_le_integral_integral_norm_sfinite
+#print axioms CFG.Smoothing.integral_norm_coupledKernelDifference_le_fderiv
+#print axioms CFG.Statistics.twoPointExpectedEnergy_eq_square
+#print axioms CFG.Statistics.twoPointNormalizedExpectedEnergy_eq_square
+#print axioms CFG.Statistics.twoPointExpectedEnergy_minimized_at_half
+#print axioms CFG.Statistics.twoPointExpectedEnergy_eq_at_half_iff
+#print axioms CFG.Statistics.twoPointNormalizedExpectedEnergy_minimized_at_third
+#print axioms CFG.Statistics.twoPointNormalizedExpectedEnergy_eq_at_third_iff
+#print axioms CFG.Statistics.normalizedEnergy_third_lt_half
+#print axioms CFG.Statistics.fullPairSum_eq_offDiagonalPairSum
+#print axioms CFG.Statistics.vPairMean_eq_factor_mul_uPairMean
+#print axioms CFG.Statistics.half_vPairMean_eq_factor_mul_half_uPairMean
+#print axioms CFG.Statistics.posteriorPrecision_mul_posteriorCovariance
+#print axioms CFG.Statistics.posteriorCovariance_mul_posteriorPrecision
+#print axioms CFG.Statistics.posteriorPrecision_isSymm
+#print axioms CFG.Statistics.posteriorCovariance_isSymm
+#print axioms CFG.Statistics.coe_condExpL2
+#print axioms CFG.Statistics.sq_norm_sub_eq_sq_sub_condExpL2_add
+#print axioms CFG.Statistics.norm_sub_condExpL2_le
+#print axioms CFG.Statistics.interiorRank_injective
+#print axioms CFG.Statistics.uniformRank_interior_probability
+#print axioms CFG.Statistics.uniformRank_sixteen_probability
+#print axioms CFG.Statistics.exchangeable_coordinateRank_eq_uniform
+#print axioms CFG.Statistics.exchangeable_truthRank_interior_probability
+#print axioms CFG.Statistics.exchangeable_truthRank_sixteen_probability
+#print axioms CFG.Statistics.measurableSet_prod_diagonal
+#print axioms CFG.Statistics.prod_diagonal_eq_zero
+#print axioms CFG.Statistics.ae_prod_fst_ne_snd
+#print axioms CFG.Statistics.iidPairMarginal
+#print axioms CFG.Statistics.iidPi_ae_ne
+#print axioms CFG.Statistics.iidPi_ae_injective
+#print axioms CFG.Statistics.iidPi_reindex_eq
+#print axioms CFG.External.log_one_div_rpow_neg
+#print axioms CFG.External.entropy_bound_at_polynomial_resolution
+#print axioms CFG.isClosedEmbedding_restrict_of_isCompact
+#print axioms CFG.isEmbedding_restrict_of_isCompact
+#print axioms CFG.Examples.hasFDerivAt_firstObservation
+#print axioms CFG.Examples.firstObservation_level_infinite
+#print axioms CFG.Examples.radiusSq_increment
+#print axioms CFG.Examples.completeDropThird_level_image
+#print axioms CFG.Examples.negative_radiusSq_level_empty
+#print axioms CFG.Examples.square_zero_level_singleton
+#print axioms CFG.Examples.scalar_two_comp_half
+#print axioms CFG.Examples.exists_scalar_two_rightInverse_norm_le
+#print axioms CFG.norm_id_sub_comp_le_of_approx
+#print axioms CFG.exists_rightInverse_of_norm_id_sub_comp_lt_one
+#print axioms CFG.exists_rightInverse_norm_le_of_norm_id_sub_comp_lt_one
+#print axioms CFG.exists_rightInverse_of_approx
+#print axioms CFG.exists_rightInverse_norm_le_of_approx
+#print axioms CFG.surjective_of_approx_rightInverse
+#print axioms CFG.affineProjection_sub_mem
+#print axioms CFG.affineProjection_eq_self
+#print axioms CFG.norm_affineProjection_sub_le
+#print axioms CFG.isSymm_nonsingInv
+#print axioms CFG.discreteSchurResponse_eq_invOf
+#print axioms CFG.discreteSchurResponse_isSymm
+#print axioms CFG.discreteSchurResponse_posSemidef
+#print axioms CFG.discreteSchurResponse_posDef
+#print axioms CFG.discreteSchurResponse_rowSum_eq_zero
+#print axioms CFG.surjectiveGram_isInvertible
+#print axioms CFG.comp_surjectivePseudoinverse
+#print axioms CFG.norm_surjectivePseudoinverse_le_of_image_eq
+#print axioms CFG.surjectivePseudoinverse_comp_isSelfAdjoint
+#print axioms CFG.norm_surjectivePseudoinverse_comp_le_one
+#print axioms CFG.surjectivePseudoinverse_mem_ker_orthogonal
+#print axioms CFG.norm_surjectivePseudoinverse_le_inv_of_lower_bound
+#print axioms CFG.Covering.coveringNumber_ball_le_gridSteps_with_coordinates
+#print axioms CFG.ProjectedImageFiberChartAt.localImage_coveringNumber_le_coverBound
+#print axioms CFG.exists_imageFiber_coveringNumber_le_sum_chartCoverBound
+#print axioms CFG.ProjectedImageFiberChartAt.coverBound_mul_pow_le_coverCoefficient
+#print axioms CFG.exists_imageFiber_coveringNumber_polynomial_certificate
+#print axioms CFG.exists_imageFiber_coveringNumber_inversePower_certificate
+#print axioms CFG.exists_imageFiber_log_covering_certificate
+#print axioms CFG.Probability.ae_condDistrib_countableDependentRandomMask_fiber_measure_eq_one
+#print axioms CFG.Probability.ae_support_map_condDistrib_countableDependentRandomMask_subset_imageFiber
+#print axioms CFG.euclideanSq_weightedUpperFlatten_eq_frobeniusSq
+#print axioms CFG.euclideanNorm_weightedUpperFlatten_eq_frobeniusNorm
+#print axioms CFG.weighted_rowSum_entrywiseNormalize_eq_zero
+#print axioms CFG.norm_matrixEuclideanCLM_le_sqrt_frobeniusSq
+#print axioms CFG.norm_matrixEuclideanCLM_le_of_frobeniusSq_le_sq
+#print axioms CFG.exists_rightInverse_of_matrix_frobenius_certificate
+#print axioms CFG.exists_rightInverse_on_closedBall_of_lipschitz_error
+#print axioms CFG.exists_rightInverse_fderiv_on_closedBall
