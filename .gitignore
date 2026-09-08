@@ -74,3 +74,12 @@ id_ed25519*
 *.bak
 *.tmp
 tmp/
+
+# Lean dependency and compilation cache
+formal/.lake/
+formal/audit-evidence/
+
+# Local audit handoffs, model conversations, and workstation evidence
+/REPAIR_SHA256SUMS.txt
+formal/BUILD_LOGS/2026-09-08-audit/
+formal/docs/AUDIT_REPAIR_2026-09-08.md

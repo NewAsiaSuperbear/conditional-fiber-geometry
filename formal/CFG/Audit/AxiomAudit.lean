@@ -1,3 +1,10 @@
+import CFG.Statistics.IntervalRankEvent
+import CFG.Statistics.ContinuousRank
+import CFG.Probability.ConditionalEntropy
+import CFG.Calculus.ModelRegularity
+import CFG.Examples.CompactModelToy
+import CFG.Calculus.PseudoinverseHessian
+import CFG.Statistics.TwoPointEnergyScore
 import CFG.Basic.Fiber
 import CFG.Analysis.NormalizedWeights
 import CFG.LinearAlgebra.RestrictedRank
@@ -397,3 +404,56 @@ reported as verified participates in `lake build`.
 #print axioms CFG.exists_rightInverse_of_matrix_frobenius_certificate
 #print axioms CFG.exists_rightInverse_on_closedBall_of_lipschitz_error
 #print axioms CFG.exists_rightInverse_fderiv_on_closedBall
+
+-- Local entropy interface and scope regression checks (2026-09-08).
+#print axioms CFG.External.entropy_bound_at_polynomial_resolution_local
+#print axioms CFG.External.entropy_bound_at_polynomial_resolution_unit
+#print axioms CFG.External.polynomial_resolution_le_of_threshold
+#print axioms CFG.External.exists_nat_polynomial_resolution_threshold
+#print axioms CFG.External.zero_entropy_local
+#print axioms CFG.External.zero_entropy_not_global
+
+#print axioms CFG.hasFDerivAt_jacobian_of_contDiffAt_two
+#print axioms CFG.norm_fderiv_pseudoinverse_jacobian_le
+#print axioms CFG.norm_fderiv_pseudoinverse_jacobian_le_on
+#print axioms CFG.curriedHessian_id
+#print axioms CFG.Statistics.iidPair_apply
+#print axioms CFG.Statistics.energyScore_twoPointForecast_at_one
+#print axioms CFG.Statistics.energyScore_twoPointForecast_at_two
+#print axioms CFG.Statistics.normalizedExpectedEnergy_twoPointForecast_fairTruth
+#print axioms CFG.Statistics.expectedEnergy_twoPointForecast_fairTruth
+#print axioms CFG.Statistics.normalizedExpectedEnergy_twoPointForecast_third_lt_half
+#print axioms CFG.Statistics.normalizedExpectedEnergy_twoPointForecast_minimized_at_third
+#print axioms CFG.Statistics.energyScore_eq_iidPair_expectation
+
+#print axioms CFG.Model.hasStrictFDerivAt_observed
+#print axioms CFG.Model.hasStrictFDerivAt_observed_of_contDiffOn
+#print axioms CFG.Model.isCompact_fiber_observed
+#print axioms CFG.Examples.toyDerivative_rank_one
+#print axioms CFG.Examples.toy_zero_mem_fiber
+#print axioms CFG.Examples.toy_polynomial_cover_certificate
+
+#print axioms CFG.Model.exists_observedImageFiber_coveringNumber_polynomial_certificate
+#print axioms CFG.Model.exists_observedImageFiber_log_covering_certificate
+#print axioms CFG.Model.finite_fiber_observed_of_fullRank
+#print axioms CFG.Model.finite_imageFiber_observed_of_fullRank
+#print axioms CFG.Probability.ae_isProbabilityMeasure_condDistrib
+#print axioms CFG.Probability.ae_condDistrib_nonempty_fiber
+#print axioms CFG.Probability.ae_condDistrib_support_polynomial_covering
+#print axioms CFG.Model.identityModel_covering_polynomial_certificate
+#print axioms CFG.Model.identityModel_finite_fiber
+#print axioms CFG.Probability.identityModel_condDistrib_support_polynomial_covering_dirac
+
+#print axioms CFG.Statistics.ae_rank_indicator_sum_eq_one
+#print axioms CFG.Statistics.rank_event_mass_sum_eq_one
+#print axioms CFG.Statistics.continuousRank_event_mass_eq_inv_card
+#print axioms CFG.Statistics.continuousRank_uniform
+#print axioms CFG.Statistics.iidPi_continuousRank_uniform
+#print axioms CFG.Statistics.measurable_coordinateRank_of_measurableSet_lt
+#print axioms CFG.Statistics.iidPi_real_continuousRank_uniform
+
+#print axioms CFG.Statistics.withinSampleExtrema_iff_truthInteriorRank
+#print axioms CFG.Statistics.truthRank_mem_interiorRank_iff
+#print axioms CFG.Statistics.continuous_withinSampleExtrema_probability
+#print axioms CFG.Statistics.iidPi_real_withinSampleExtrema_probability
+#print axioms CFG.Statistics.iidPi_real_withinSampleExtrema_sixteen_probability

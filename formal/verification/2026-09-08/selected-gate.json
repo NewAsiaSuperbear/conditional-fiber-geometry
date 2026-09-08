@@ -1,0 +1,1109 @@
+{
+  "status": "PASS_SELECTED_TARGETS",
+  "expected_count": 219,
+  "observed_count": 219,
+  "missing_targets": [],
+  "unapproved_axioms": {},
+  "allowlist": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "all_production_declarations_enumerated": false,
+  "entries": {
+    "CFG.Analysis.abs_sub_one_le_ratio_mul_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Analysis.exp_ratio_eq_tanh_half": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Analysis.half_integral_abs_sub_one_le_ratio": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Analysis.half_integral_abs_sub_one_le_tanh": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.card_anisoIntegerBox": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.card_integerBox": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.coveringNumber_ball_le_gridSteps_with_coordinates": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.coveringNumber_imageFiber_ne_top": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.coveringNumber_image_le_coveringNumber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.coveringNumber_ne_top_of_isCompact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.exists_coveringNumber_ball_le_gridSteps_of_finrank_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.externalCoveringNumber_biUnion_finset_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.externalCoveringNumber_biUnion_image_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.externalCoveringNumber_diagonalCoordinateBox_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.externalCoveringNumber_diagonalTube_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.externalCoveringNumber_image_le_coveringNumber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.externalCoveringNumber_supNormBox_le_gridSteps": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.externalCoveringNumber_union_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.gridCard_real_le_polynomial": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.isCover_anisoBox_gridSteps": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.isCover_image_lipschitzOn": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Covering.isCover_supNormBox_gridSteps": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.completeDropThird_level_image": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.exists_scalar_two_rightInverse_norm_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.firstObservation_level_infinite": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.hasFDerivAt_firstObservation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.negative_radiusSq_level_empty": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.radiusSq_increment": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.scalar_two_comp_half": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.square_zero_level_singleton": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.toyDerivative_rank_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.toy_polynomial_cover_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Examples.toy_zero_mem_fiber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.External.entropy_bound_at_polynomial_resolution": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.External.entropy_bound_at_polynomial_resolution_local": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.External.entropy_bound_at_polynomial_resolution_unit": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.External.exists_nat_polynomial_resolution_threshold": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.External.log_one_div_rpow_neg": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.External.polynomial_resolution_le_of_threshold": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.External.zero_entropy_local": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.External.zero_entropy_not_global": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.HasFDerivAt.adjoint_clm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.HasStrictFDerivAt.exists_localLipschitz_fiberChart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.HasStrictFDerivAt.exists_localLipschitz_fiberChart_ball": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.HasStrictFDerivAt.exists_localLipschitz_imageFiberChart_ball": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.HasStrictFDerivAt.exists_projected_localLipschitz_fiberChart": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.HasStrictFDerivAt.exists_projected_localLipschitz_fiberChart_ball": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.LinearTube.diagonalTube_subset_coordinateBox": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.LinearTube.mem_whitened_tube_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.LinearTube.norm_map_sub_le_two_mul": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.LinearTube.norm_sub_le_two_mul": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.LinearTube.whitened_residual_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.exists_observedImageFiber_coveringNumber_polynomial_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.exists_observedImageFiber_log_covering_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.finite_fiber_observed_of_fullRank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.finite_imageFiber_observed_of_fullRank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.hasFDerivAt_observed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.hasFDerivAt_observed_and_rank_identity": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.hasStrictFDerivAt_observed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.hasStrictFDerivAt_observed_of_contDiffOn": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.identityModel_covering_polynomial_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.identityModel_finite_fiber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.isCompact_fiber_observed": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Model.observed_apply": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_condDistrib_countableDependentRandomMask_fiber_measure_eq_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_condDistrib_dependentRandomMask_fiber_measure_eq_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_condDistrib_fiber_measure_eq_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_condDistrib_levelSet_measure_eq_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_condDistrib_nonempty_fiber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_condDistrib_randomMask_fiber_measure_eq_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_condDistrib_relation_section_eq_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_condDistrib_support_polynomial_covering": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_condKernel_section_measure_eq_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_isProbabilityMeasure_condDistrib": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_kernel_measure_eq_one_of_lintegral_compl_eq_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_kernel_section_measure_eq_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_support_map_condDistrib_countableDependentRandomMask_subset_imageFiber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_support_map_condDistrib_dependentRandomMask_subset_imageFiber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_support_map_condDistrib_randomMask_subset_imageFiber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.ae_support_map_condDistrib_subset_imageFiber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Probability.identityModel_condDistrib_support_polynomial_covering_dirac": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.ProjectedImageFiberChartAt.coverBound_mul_pow_le_coverCoefficient": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.ProjectedImageFiberChartAt.exists_localImage_covering_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.ProjectedImageFiberChartAt.localImage_coveringNumber_le_coverBound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.QuantitativeGraph.contraction_factor_lt_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.QuantitativeGraph.contraction_maps_ball": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.QuantitativeGraph.inverse_stability_ratio_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.QuantitativeGraph.radius_square_lt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Smoothing.integral_norm_coupledKernelDifference_le_fderiv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Smoothing.integral_norm_coupledKernelDifference_le_of_integrable": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Smoothing.integral_norm_integral_le_integral_integral_norm_sfinite": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Smoothing.integral_norm_kernel_sub_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Smoothing.integral_norm_kernel_sub_le_fderiv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Smoothing.integral_norm_kernel_sub_le_fderiv_of_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.ae_prod_fst_ne_snd": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.ae_rank_indicator_sum_eq_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.coe_condExpL2": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.continuousRank_event_mass_eq_inv_card": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.continuousRank_uniform": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.continuous_withinSampleExtrema_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.energyScore_eq_iidPair_expectation": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.energyScore_twoPointForecast_at_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.energyScore_twoPointForecast_at_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.exchangeable_coordinateRank_eq_uniform": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.exchangeable_truthRank_interior_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.exchangeable_truthRank_sixteen_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.expectedEnergy_twoPointForecast_fairTruth": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.fullPairSum_eq_offDiagonalPairSum": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.half_vPairMean_eq_factor_mul_half_uPairMean": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.iidPairMarginal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.iidPair_apply": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.iidPi_ae_injective": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.iidPi_ae_ne": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.iidPi_continuousRank_uniform": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.iidPi_real_continuousRank_uniform": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.iidPi_real_withinSampleExtrema_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.iidPi_real_withinSampleExtrema_sixteen_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.iidPi_reindex_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.interiorRank_injective": [
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.measurableSet_prod_diagonal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.measurable_coordinateRank_of_measurableSet_lt": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.norm_sub_condExpL2_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.normalizedEnergy_third_lt_half": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.normalizedExpectedEnergy_twoPointForecast_fairTruth": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.normalizedExpectedEnergy_twoPointForecast_minimized_at_third": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.normalizedExpectedEnergy_twoPointForecast_third_lt_half": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.posteriorCovariance_isSymm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.posteriorCovariance_mul_posteriorPrecision": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.posteriorPrecision_isSymm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.posteriorPrecision_mul_posteriorCovariance": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.prod_diagonal_eq_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.rank_event_mass_sum_eq_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.sq_norm_sub_eq_sq_sub_condExpL2_add": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.truthRank_mem_interiorRank_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.twoPointExpectedEnergy_eq_at_half_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.twoPointExpectedEnergy_eq_square": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.twoPointExpectedEnergy_minimized_at_half": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.twoPointNormalizedExpectedEnergy_eq_at_third_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.twoPointNormalizedExpectedEnergy_eq_square": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.twoPointNormalizedExpectedEnergy_minimized_at_third": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.uniformRank_interior_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.uniformRank_sixteen_probability": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.vPairMean_eq_factor_mul_uPairMean": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Statistics.withinSampleExtrema_iff_truthInteriorRank": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Transport.abs_withDensity_event_sub_attains_half_integral": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Transport.abs_withDensity_event_sub_le_half_integral": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Transport.abs_withDensity_event_sub_le_ratio": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Transport.abs_withDensity_event_sub_le_tanh": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Transport.half_integral_abs_sub_one_eq_iSup_event_abs": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.Transport.iSup_event_abs_le_tanh": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.adjoint_gram_inverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.affineProjection_eq_self": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.affineProjection_sub_mem": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.comp_surjectivePseudoinverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.curriedHessian_id": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.discreteSchurResponse_eq_invOf": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.discreteSchurResponse_isSymm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.discreteSchurResponse_posDef": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.discreteSchurResponse_posSemidef": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.discreteSchurResponse_rowSum_eq_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.euclideanNorm_weightedUpperFlatten_eq_frobeniusNorm": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.euclideanSq_weightedUpperFlatten_eq_frobeniusSq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_finite_projectedFiberAtlas": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_finite_projectedImageFiberAtlas": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_finite_projectedImageFiberAtlas_image_cover": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_imageFiber_coveringNumber_inversePower_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_imageFiber_coveringNumber_le_sum_chartCoverBound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_imageFiber_coveringNumber_polynomial_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_imageFiber_log_covering_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_rightInverse_fderiv_on_closedBall": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_rightInverse_norm_le_of_approx": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_rightInverse_norm_le_of_norm_id_sub_comp_lt_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_rightInverse_of_approx": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_rightInverse_of_matrix_frobenius_certificate": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_rightInverse_of_norm_id_sub_comp_lt_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_rightInverse_on_closedBall_of_lipschitz_error": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.exists_surjective_outputProjection": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.fderiv_surjectivePseudoinverse_apply": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.fiber_disjoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.finite_fiber_of_fullRank_strictFDeriv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.finrank_range_comp_le_finrank_range": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.finrank_range_restrictToObservedKer_add_finrank_range_comp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.finrank_range_restrictToObservedKer_eq_sub": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.hasFDerivAt_gram_inverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.hasFDerivAt_jacobian_of_contDiffAt_two": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.hasFDerivAt_ringInverse_comp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.hasFDerivAt_surjectiveGram": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.hasFDerivAt_surjectivePseudoinverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.isClosedEmbedding_restrict_of_isCompact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.isClosed_fiber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.isCompact_fiber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.isCompact_imageFiber": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.isEmbedding_restrict_of_isCompact": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.isSymm_nonsingInv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.kerRestrictToObservedKerEquiv": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.ker_le_ker_comp": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.mem_fiber_iff": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.mul_uniformRadius_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_affineProjection_sub_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_fderiv_pseudoinverse_jacobian_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_fderiv_pseudoinverse_jacobian_le_on": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_fderiv_surjectivePseudoinverse_apply_le": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_fderiv_surjectivePseudoinverse_apply_le_of_lipschitz": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_fderiv_surjectivePseudoinverse_apply_le_of_lower_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_id_sub_comp_le_of_approx": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_matrixEuclideanCLM_le_of_frobeniusSq_le_sq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_matrixEuclideanCLM_le_sqrt_frobeniusSq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_one_sub_surjectivePseudoinverse_comp_le_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_surjectivePseudoinverse_comp_le_one": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_surjectivePseudoinverse_le_inv_of_lower_bound": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.norm_surjectivePseudoinverse_le_of_image_eq": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.surjectiveGram_isInvertible": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.surjectivePseudoinverse_comp_isSelfAdjoint": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.surjectivePseudoinverse_mem_ker_orthogonal": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.surjective_of_approx_rightInverse": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.uniformRadius_le_half": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.uniformRadius_of_eq_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.uniformRadius_pos": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "CFG.weighted_rowSum_entrywiseNormalize_eq_zero": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  }
+}
