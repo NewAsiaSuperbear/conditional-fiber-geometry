@@ -231,3 +231,12 @@ respective terms. See [`LICENSE`](LICENSE) and
 [`LICENSES/CC-BY-4.0.txt`](LICENSES/CC-BY-4.0.txt) for the research-material
 license notice, and
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for attribution details.
+
+## Lean formalization and audit
+
+The Lean development is an incremental formalization; it does not certify all
+manuscript claims or a concrete EIT model. The
+[public audit overview](formal/docs/PUBLIC_AUDIT_2026-09-08.md) classifies the
+completed modules, reproducibility tools, verification results, and remaining
+mathematical obligations. See the [theorem map](formal/THEOREM_MAP.md) and
+[assumption ledger](formal/ASSUMPTION_LEDGER.md) for theorem-level scope.

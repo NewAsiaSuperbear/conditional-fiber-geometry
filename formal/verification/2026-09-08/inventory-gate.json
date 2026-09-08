@@ -1,0 +1,12 @@
+{
+  "status": "PASS_INVENTORY",
+  "declaration_count": 736,
+  "source_module_count": 54,
+  "private_or_generated_count": 211,
+  "non_cfg_namespace_count": 16,
+  "allowlist": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ]
+}

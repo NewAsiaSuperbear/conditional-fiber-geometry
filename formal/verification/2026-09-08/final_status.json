@@ -1,0 +1,70 @@
+{
+  "completed_at_utc": "2026-09-08T08:26:14.516567+00:00",
+  "status": "PASS_LOCAL_IMPLEMENTATION_CHECKS",
+  "audit_base_commit": "8501264e5a4837f43fa83afdf683e3c9d544761e",
+  "branch": "formal/cfg-audit-20260908",
+  "uncommitted_worktree": true,
+  "source_digest_sha256": "67907b6e205bada0db52a1bde234fbb679541655ddcd047b8369e5ddbd8e5dff",
+  "build": {
+    "exit_code": 0,
+    "jobs": 8935,
+    "warning_as_error": true
+  },
+  "selected_axiom_gate": {
+    "exit_code": 0,
+    "targets": 219
+  },
+  "critical_axiom_gate": {
+    "exit_code": 0,
+    "targets": 61
+  },
+  "source_hygiene": {
+    "exit_code": 0,
+    "modules": 54,
+    "orphans": [],
+    "forbidden": []
+  },
+  "leanchecker": {
+    "exit_code": 0,
+    "command": "LEAN_NUM_THREADS=2 lake env leanchecker --verbose CFG",
+    "replayed_modules": 54
+  },
+  "namespace_axiom_audit": {
+    "exit_code": 0,
+    "declarations": 736,
+    "tool_commit": "46024e005996495c65ef609368e11ab39c4222e3"
+  },
+  "source_module_inventory": {
+    "status": "PASS_INVENTORY",
+    "declaration_count": 736,
+    "source_module_count": 54,
+    "private_or_generated_count": 211,
+    "non_cfg_namespace_count": 16,
+    "allowlist": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "private_count": 13,
+    "unresolved_dependencies": 0
+  },
+  "tool_tests": {
+    "exit_code": 0,
+    "unittest_tests": 25
+  },
+  "shell_syntax_check": true,
+  "ci_yaml_syntax_check": true,
+  "remote_ci_run": false,
+  "dependency_cache": "nine clean checkouts match lock; dependency binaries cached; project sources rebuilt",
+  "axiom_allowlist": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "mathematical_scope": "Prioritized incremental interfaces and examples; full scientific specification NOT complete; see remaining obligations",
+  "concrete_EIT_certified": false,
+  "external_DDPM_formalized": false,
+  "paper_mapping_manual_review_complete": false,
+  "mlflow_run_created": false,
+  "mlflow_reason": "formal correctness checks and unit tests, not numerical research experiments"
+}

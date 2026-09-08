@@ -1,0 +1,9 @@
+{
+  "status": "PASS_LEXICAL_SCREEN",
+  "scope": "Lexical/import screen only; not proof checking or full Lean parsing",
+  "file_count": 54,
+  "forbidden": [],
+  "manual_review": [],
+  "unreachable_modules": [],
+  "missing_project_imports": []
+}

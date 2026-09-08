@@ -77,3 +77,21 @@ Users should consult the package metadata supplied by their TeX distribution.
 Installed dependency distributions can contain transitive components and
 additional notices. Their own bundled license files are authoritative. The
 MIT and CC BY 4.0 grants in this repository do not relicense any dependency.
+
+## Lean formal verification dependencies
+
+The formal development references the following external tools; their source
+and dependency caches are not redistributed in this repository:
+
+| Component | Pin used by this audit | Upstream license |
+| --- | --- | --- |
+| Lean 4 | `v4.34.0-rc2` | Apache-2.0; upstream bundled notices remain applicable |
+| mathlib | `71a80585ee495fc24472fd0eaffc89d94e4fd8d6` | Apache-2.0 |
+| leanprover/lean-action | `96e06131c0e9943c780388fd166f55d1e2fa0433` | Apache-2.0 |
+| axiom-audit | `46024e005996495c65ef609368e11ab39c4222e3` (`v0.1.2`, local audit) | Apache-2.0 |
+
+`formal/lake-manifest.json` records the complete Lake dependency pins.
+The licenses and notices included in the upstream distributions govern those
+dependencies. The locally retained Lean workflow pins its outer action; nested tool
+downloads and runner components are additional reproducibility dependencies. The recorded
+local axiom-audit pin does not by itself pin every download performed by CI.

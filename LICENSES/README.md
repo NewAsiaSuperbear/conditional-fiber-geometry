@@ -9,6 +9,8 @@ The standard MIT License in the repository-root `LICENSE` file applies to the
 original software and software-oriented configuration, including:
 
 - `src/` and `tests/`;
+- original Lean source under `formal/CFG/`, `formal/CFG.lean`, and original
+  executable audit tools and build configuration under `formal/`;
 - executable source files under `experiments/`;
 - `.github/workflows/`;
 - `pyproject.toml`, `requirements-release.txt`, `Makefile`, and `.gitignore`; and
@@ -22,6 +24,8 @@ Attribution 4.0 International license (CC BY 4.0). This category includes:
 
 - `manuscript/`;
 - `docs/`;
+- author-owned non-executable documentation, proof-status metadata, and
+  verification summaries under `formal/`;
 - author-owned prose and metadata in the repository root;
 - author-owned non-executable documentation under `experiments/`; and
 - author-owned numerical results under `experiments/results/`.
